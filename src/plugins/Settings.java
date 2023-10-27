@@ -1,4 +1,6 @@
-package ModuleLogic;
+package plugins;
+
+import ModuleLogic.BaseModule;
 
 public class Settings extends BaseModule {
     @Override

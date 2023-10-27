@@ -2,9 +2,7 @@ package Core;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public final class Util {
     // setup for singleton class
@@ -41,6 +39,22 @@ public final class Util {
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
+    }
+
+    public List<String> getFileNames(String fileDirectory) {
+        List<String> filesNameList = new ArrayList<>();
+        File directory = new File(fileDirectory);
+        File[] files = directory.listFiles();
+
+        if (files == null) {
+            System.out.println("Error: filesInDirectory returned null\nMethod getFileNames in Util.Java");
+            return filesNameList;
+        }
+
+        for (File file : files) {
+            filesNameList.add(file.getName());
+        }
+        return filesNameList;
     }
 
     // getter and setters
