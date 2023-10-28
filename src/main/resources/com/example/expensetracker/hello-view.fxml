@@ -223,8 +223,9 @@
                   </Label>
                   <TableView editable="true" prefHeight="350.0" prefWidth="530.0" tableMenuButtonVisible="true">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Description" />
+                      <TableColumn prefWidth="140.0" text="Description" />
                       <TableColumn prefWidth="75.0" text="Category" />
+                        <TableColumn prefWidth="75.0" text="Department" />
                         <TableColumn prefWidth="75.0" text="Date" />
                         <TableColumn prefWidth="75.0" text="Amount" />
                         <TableColumn prefWidth="75.0" text="Receipt" />
