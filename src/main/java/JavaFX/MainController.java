@@ -14,6 +14,14 @@ import java.util.Properties;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        tableInit();
+    }
+
+    // expense Table
+
     @FXML
     private TableColumn<ExpenseRecord, Double> amount;
 
@@ -40,8 +48,7 @@ public class MainController implements Initializable {
             new ExpenseRecord(20.0, "Lunch", "April", "Khols", "Big Mac", "Digital")
     );
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void tableInit() {
         amount.setCellValueFactory(new PropertyValueFactory<ExpenseRecord, Double>("amount"));
         category.setCellValueFactory(new PropertyValueFactory<ExpenseRecord, String>("category"));
         date.setCellValueFactory(new PropertyValueFactory<ExpenseRecord, String>("date"));
