@@ -51,16 +51,18 @@
             </ImageView>
          </children>
       </HBox>
-      <Region prefHeight="1.0" prefWidth="1.0" VBox.vgrow="ALWAYS" />
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="200.0">
          <children>
             <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="443.0">
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="443.0">
                <children>
                   <Label text="MM/YYYY">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="30.0" />
+                     </VBox.margin>
                   </Label>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
@@ -86,6 +88,9 @@
                                        <font>
                                           <Font name="System Bold" size="32.0" />
                                        </font>
+                                       <padding>
+                                          <Insets top="40.0" />
+                                       </padding>
                                     </Label>
                                     <Label text="Key">
                                        <font>
@@ -100,6 +105,9 @@
                                        <font>
                                           <Font name="System Bold" size="32.0" />
                                        </font>
+                                       <padding>
+                                          <Insets top="40.0" />
+                                       </padding>
                                     </Label>
                                     <Label text="Key">
                                        <font>
@@ -114,6 +122,9 @@
                                        <font>
                                           <Font name="System Bold" size="32.0" />
                                        </font>
+                                       <padding>
+                                          <Insets top="40.0" />
+                                       </padding>
                                     </Label>
                                     <Label text="Key">
                                        <font>
@@ -146,6 +157,9 @@
                                        <font>
                                           <Font name="System Bold" size="32.0" />
                                        </font>
+                                       <padding>
+                                          <Insets top="40.0" />
+                                       </padding>
                                     </Label>
                                     <Label text="Key">
                                        <font>
@@ -160,6 +174,9 @@
                                        <font>
                                           <Font name="System Bold" size="32.0" />
                                        </font>
+                                       <padding>
+                                          <Insets top="40.0" />
+                                       </padding>
                                     </Label>
                                     <Label text="Key">
                                        <font>
@@ -174,6 +191,9 @@
                                        <font>
                                           <Font name="System Bold" size="32.0" />
                                        </font>
+                                       <padding>
+                                          <Insets top="40.0" />
+                                       </padding>
                                     </Label>
                                     <Label text="Key">
                                        <font>
@@ -188,12 +208,18 @@
                   </HBox>
                </children></VBox>
             <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="530.0">
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="530.0">
                <children>
                   <Label text="Expense History">
                      <font>
-                        <Font size="30.0" />
+                        <Font name="System Bold" size="30.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="30.0" />
+                     </VBox.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
                   </Label>
                   <TableView editable="true" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true">
                     <columns>
@@ -201,28 +227,54 @@
                       <TableColumn prefWidth="75.0" text="Category" />
                         <TableColumn prefWidth="75.0" text="Date" />
                         <TableColumn prefWidth="75.0" text="Amount" />
+                        <TableColumn prefWidth="75.0" text="Receipt" />
                     </columns>
                   </TableView>
                </children></VBox>
             <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <Region prefHeight="1.0" prefWidth="1.0" VBox.vgrow="ALWAYS" />
-      <HBox prefHeight="200.0" prefWidth="1512.0">
+      <HBox fillHeight="false" prefHeight="200.0" prefWidth="1512.0">
          <children>
             <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
-            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #EBEBF0;">
+            <VBox prefHeight="200.0" prefWidth="360.0" style="-fx-border-color: #EBEBF0;">
+               <children>
+                  <HBox prefHeight="68.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/news/newsPlaceholder.png" />
+                           </image>
+                        </ImageView>
+                        <VBox prefHeight="64.0" prefWidth="100.0">
+                           <children>
+                              <Label text="Title">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font></Label>
+                              <Label text="Info" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Region prefHeight="1.0" prefWidth="303.0" HBox.hgrow="ALWAYS" />
+            <VBox prefHeight="200.0" prefWidth="360.0" style="-fx-border-color: #EBEBF0;">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../images/news/newsPlaceholder.png" />
                            </image>
                         </ImageView>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Label text="Title" />
+                              <Label text="Title">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font></Label>
                               <Label text="Info" />
                            </children>
                         </VBox>
@@ -231,38 +283,21 @@
                </children>
             </VBox>
             <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
-            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #EBEBF0;">
+            <VBox prefHeight="200.0" prefWidth="360.0" style="-fx-border-color: #EBEBF0;">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../images/news/newsPlaceholder.png" />
                            </image>
                         </ImageView>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Label text="Title" />
-                              <Label text="Info" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
-            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #EBEBF0;">
-               <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../images/news/newsPlaceholder.png" />
-                           </image>
-                        </ImageView>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Label text="Title" />
+                              <Label text="Title">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font></Label>
                               <Label text="Info" />
                            </children>
                         </VBox>
@@ -273,7 +308,7 @@
             <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <Region prefHeight="1.0" prefWidth="1.0" VBox.vgrow="ALWAYS" />
+      <Region prefHeight="200.0" prefWidth="1512.0" VBox.vgrow="ALWAYS" />
       <HBox prefHeight="25.0" prefWidth="1512.0">
          <children>
             <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
