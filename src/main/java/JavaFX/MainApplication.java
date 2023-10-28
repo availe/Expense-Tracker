@@ -1,5 +1,6 @@
 package JavaFX;
 
+import Core.Main;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -16,7 +17,7 @@ public class MainApplication extends Application {
         stage.setTitle("Hello!");
         stage.setMaximized(true);
 
-        TableController tableController = fxmlLoader.getController();
+        MainController mainController = fxmlLoader.getController();
 
         stage.setScene(scene);
         stage.show();
