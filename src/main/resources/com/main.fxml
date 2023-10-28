@@ -223,12 +223,12 @@
                   </Label>
                   <TableView editable="true" prefHeight="350.0" prefWidth="530.0" tableMenuButtonVisible="true">
                     <columns>
-                      <TableColumn prefWidth="140.0" text="Description" />
-                      <TableColumn prefWidth="75.0" text="Category" />
-                        <TableColumn prefWidth="75.0" text="Department" />
-                        <TableColumn prefWidth="75.0" text="Date" />
-                        <TableColumn prefWidth="75.0" text="Amount" />
-                        <TableColumn prefWidth="75.0" text="Receipt" />
+                      <TableColumn fx:id="description" prefWidth="140.0" text="Description" />
+                      <TableColumn fx:id="category" prefWidth="75.0" text="Category" />
+                        <TableColumn fx:id="department" prefWidth="75.0" text="Department" />
+                        <TableColumn fx:id="date" prefWidth="75.0" text="Date" />
+                        <TableColumn fx:id="amount" prefWidth="75.0" text="Amount" />
+                        <TableColumn fx:id="receipt" prefWidth="75.0" text="Receipt" />
                     </columns>
                      <VBox.margin>
                         <Insets />
