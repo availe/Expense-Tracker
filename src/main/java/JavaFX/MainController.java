@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
@@ -21,7 +22,8 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tableInit();
-        writeToDatabase();
+        loadDatabase();
+        //writeToDatabase();
     }
 
     // expense table database logic
@@ -33,9 +35,14 @@ public class MainController implements Initializable {
         }
         System.out.println("Database is connected.");
 
-        for (ExpenseRecord record : list) {
+        for (ExpenseRecord record : observableList) {
             DatabaseUtil.getInstance().addRecord(record);
         }
+    }
+
+    public void loadDatabase() {
+        List<ExpenseRecord> loadList = DatabaseUtil.getInstance().readRecords();
+        observableList.addAll(loadList); //
     }
 
     // expense table FXML logic
@@ -61,10 +68,7 @@ public class MainController implements Initializable {
     @FXML
     private TableView<ExpenseRecord> table;
 
-    public ObservableList<ExpenseRecord> list = FXCollections.observableArrayList(
-            // amount, category, date, department, description, receipt
-            new ExpenseRecord(20.0, "Lunch", "April", "Marketing", "Big Mac")
-    );
+    public ObservableList<ExpenseRecord> observableList = FXCollections.observableArrayList();
 
     public void tableInit() {
         amount.setCellValueFactory(new PropertyValueFactory<ExpenseRecord, Double>("amount"));
@@ -73,6 +77,6 @@ public class MainController implements Initializable {
         department.setCellValueFactory(new PropertyValueFactory<ExpenseRecord, String>("department"));
         description.setCellValueFactory(new PropertyValueFactory<ExpenseRecord, String>("description"));
 
-        table.setItems(list);
+        table.setItems(observableList);
     }
 }

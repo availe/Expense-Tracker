@@ -2,6 +2,8 @@ package Database;
 import JavaFX.ExpenseRecord;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public final class DatabaseUtil {
     // setup for singleton class
@@ -65,13 +67,14 @@ public final class DatabaseUtil {
 
         PreparedStatement preparedStatement;
         ResultSet resultSet;
-        String query = "INSERT INTO expenses (departmentId, amount, date, category) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO expenses (departmentId, amount, date, category) VALUES (?, ?, ?, ?, ?)";
         try {
             preparedStatement = DatabaseUtil.getInstance().getConnection().prepareStatement(query);
             preparedStatement.setInt(1, departmentID);
             preparedStatement.setDouble(2, record.getAmount());
             preparedStatement.setString(3, record.getDate());
             preparedStatement.setString(4, record.getCategory());
+            preparedStatement.setString(5, record.getDescription());
             preparedStatement.executeUpdate();
             System.out.println("Write was successful");;
         } catch (Exception e) {
@@ -94,6 +97,29 @@ public final class DatabaseUtil {
             throw new RuntimeException(e);
         }
         return -1;
+    }
+
+    public List<ExpenseRecord> readRecords() {
+        List<ExpenseRecord> expenses = new ArrayList<>();
+        String query = "select e.amount, e.date, e.category, e.description, d.departmentName from expenses e join departments d on e.departmentId = d.departmentId";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                double amount = resultSet.getDouble("amount");
+                String date = resultSet.getString("date");
+                String category = resultSet.getString("category");
+                String department = resultSet.getString("departmentName");
+                String description = resultSet.getString("description");
+
+                expenses.add(new ExpenseRecord(amount, category, date, department, description));
+                System.out.println("Read was successful");
+            }
+            } catch (SQLException e) {
+            System.out.println("Read was not successful");
+            throw new RuntimeException(e);
+        }
+        return expenses;
     }
 
 // getter and setters
