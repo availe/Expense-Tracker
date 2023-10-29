@@ -22,6 +22,9 @@ public class MainController implements Initializable {
         addInputToComboBox();
         tableInit();
         loadDatabase();
+        for (int i : primaryKeysList) {
+            System.out.println(i);
+        }
         addExpense.setOnAction(e-> insertNewRow());
     }
 
@@ -46,6 +49,7 @@ public class MainController implements Initializable {
         List<ExpenseRecord> loadList = DatabaseUtil.getInstance().readRecords();
         observableList.addAll(loadList);
         for (ExpenseRecord record : loadList) {
+            primaryKeysList.add(record.getExpenseID());
             System.out.println("Loaded expenseId: " + record.getExpenseID());
         }
     }
@@ -86,8 +90,10 @@ public class MainController implements Initializable {
             Integer expenseId;
             if (primaryKeysList.isEmpty()) {
                 expenseId = 0;
+                System.out.println("PrimaryKeyList was empty");
             }
             else {
+                System.out.println("PrimaryKeyList was NOT empty");
                 System.out.println(primaryKeysList.size());
                 expenseId = primaryKeysList.get(primaryKeysList.size()-1) + 1;
                 System.out.println(expenseId);

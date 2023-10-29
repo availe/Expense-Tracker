@@ -125,6 +125,17 @@ public final class DatabaseUtil {
         return expenses;
     }
 
+    public void deleteRecord(ExpenseRecord record) {
+        String query = "delete from expenses where expenseId = ?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, record.getExpenseID());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 // getter and setters
 
     public String getDatabasePath() {
