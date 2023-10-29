@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 public class MainApplication extends Application {
-    private static String fxmlPath = "Unchanged FXML Path";
+    private static String fxmlPath = "FXML Path is not initialized";
     @Override
     public void start(Stage stage) throws IOException {
         System.out.println(fxmlPath);

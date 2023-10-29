@@ -6,16 +6,19 @@ import java.sql.SQLException;
 public final class DatabaseUtil {
     // setup for singleton class
     private static DatabaseUtil firstInstance = null;
-    private DatabaseUtil() {};
+
+    private DatabaseUtil() {
+    }
+
     public static DatabaseUtil getInstance() {
         if (firstInstance == null) firstInstance = new DatabaseUtil();
         return firstInstance;
     }
 
     // DatabaseUtil's variables
-    private static String databasePath = "/src/main/resources/database/";
+    private String databasePath = "databasePath is not initialized";
 
-    public static Connection connectToDatabase(String databaseName) {
+    public Connection connectToDatabase(String databaseName) {
         Connection connection = null;
 
         try {
@@ -30,7 +33,7 @@ public final class DatabaseUtil {
         return connection;
     }
 
-    public static Connection closeDatabase(Connection connection) {
+    public Connection closeDatabase(Connection connection) {
         if (connection != null) {
             try {
                 connection.close();
@@ -41,13 +44,13 @@ public final class DatabaseUtil {
         return connection;
     }
 
-    // getter and setters
+// getter and setters
 
     public String getDatabasePath() {
         return databasePath;
     }
 
     public void setDatabasePath(String databasePath) {
-        DatabaseUtil.databasePath = databasePath;
+        this.databasePath = databasePath;
     }
 }

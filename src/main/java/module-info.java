@@ -11,5 +11,6 @@ module com.example.expensetracker {
     requires java.sql;
 
     exports JavaFX;
+    exports Database;
     opens JavaFX to javafx.fxml;
 }
