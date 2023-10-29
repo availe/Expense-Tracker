@@ -21,6 +21,7 @@ public class MainController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addInputToComboBox();
         tableInit();
+        loadValuesKeys();
         loadDatabase();
         for (int i : primaryKeysList) {
             System.out.println(i);
@@ -112,6 +113,7 @@ public class MainController implements Initializable {
             observableList.add(record);
             writeToDatabase();
             primaryKeysList.add(expenseId);
+            updateValues();
         } catch (Exception e) {
             System.out.println("Something went wrong while inserting new row");
             e.printStackTrace();
@@ -122,10 +124,17 @@ public class MainController implements Initializable {
         if (lastSelectedRow == null) {
             return;
         }
-        observableList.remove(lastSelectedRow);
+        int selectedIndex = table.getSelectionModel().getSelectedIndex();
         DatabaseUtil.getInstance().deleteRecord(lastSelectedRow);
-        lastSelectedRow = null;
+        observableList.remove(lastSelectedRow);
         table.refresh();
+        updateValues();
+        if (selectedIndex == table.getItems().size() && table.getItems().size() > 0) {
+            table.getSelectionModel().select(selectedIndex);
+        } else {
+            table.getSelectionModel().clearSelection();
+            lastSelectedRow = null;
+        }
     }
 
     // combobox categories
@@ -173,4 +182,103 @@ public class MainController implements Initializable {
 
     @FXML
     private Button deleteExpense;
+
+    // values and keys FXML
+
+    @FXML
+    private Label currDate;
+
+    @FXML
+    private Label keyl1;
+
+    @FXML
+    private Label keyl2;
+
+    @FXML
+    private Label keyl3;
+
+    @FXML
+    private Label keyl4;
+
+    @FXML
+    private Label keyr1;
+
+    @FXML
+    private Label keyr2;
+
+    @FXML
+    private Label keyr3;
+
+    @FXML
+    private Label keyr4;
+
+    @FXML
+    private Label valuel1;
+
+    @FXML
+    private Label valuel2;
+
+    @FXML
+    private Label valuel3;
+
+    @FXML
+    private Label valuel4;
+
+    @FXML
+    private Label valuer1;
+
+    @FXML
+    private Label valuer2;
+
+    @FXML
+    private Label valuer3;
+
+    @FXML
+    private Label valuer4;
+
+    public void  loadValuesKeys() {
+        LocalDate tempTime = LocalDate.now();
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+        String insertDate = tempTime.format(dateFormat);
+        currDate.setText(insertDate);
+
+        keyl2.setText("Net revenue");
+        keyl3.setText("Costs");
+        keyl4.setText("Estimated taxes");
+
+        keyr1.setText("Stock price");
+        keyr2.setText("Interest rate");
+        keyr3.setText("Employee headcount");
+        keyr4.setText("Department budget");
+
+        valuel1.setText("$240,000");
+        valuel2.setText("$300,000");
+        System.out.println("Try this" + valuel2.getText());
+        updateValues();
+        valuel4.setText("$75,000");
+
+        valuer1.setText("$240.45");
+        valuer2.setText("$11.77%");
+        valuer3.setText("$1,350");
+        valuer4.setText("15,000");
+    }
+
+    public void updateValues() {
+        double cost = 0;
+        for (ExpenseRecord record : observableList) {
+            cost += record.getAmount();
+        }
+        String insertCost = String.format("$%,.2f", cost);
+        valuel3.setText(insertCost);
+        System.out.println(valuel2.getText());
+        String revenueTxt = valuel2.getText().replace("$","").replace(",","");
+        System.out.println(revenueTxt);
+        double revenue = Double.parseDouble(revenueTxt);
+        double netIncome = revenue - cost;
+        String insertNetIncome = String.format("%,.2f", netIncome);
+        valuel1.setText(insertNetIncome);
+    }
+
 }
+
+
