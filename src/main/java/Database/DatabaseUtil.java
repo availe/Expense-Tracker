@@ -1,9 +1,7 @@
 package Database;
 import JavaFX.ExpenseRecord;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public final class DatabaseUtil {
     // setup for singleton class
@@ -24,19 +22,19 @@ public final class DatabaseUtil {
 
     // DatabaseUtil's methods
 
-    public Connection connectToDatabase() {
-        Connection connection = null;
-
+    public void connectToDatabase() {
         try {
             Class.forName("org.sqlite.JDBC");
-            connection = DriverManager.getConnection("jdbc:sqlite:" + databasePath + databaseName);
+            this.connection = DriverManager.getConnection("jdbc:sqlite:" + databasePath + databaseName);
+            String loading = "jdbc:sqlite:" + databasePath + databaseName;
+            System.out.println(loading);
+            Statement statement = this.connection.createStatement();
+            statement.execute("PRAGMA foreign_keys = ON;");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-        return connection;
     }
 
     public void closeDatabase() {
@@ -59,7 +57,43 @@ public final class DatabaseUtil {
 
     // not modular but we can try to figure this out later
     public void addRecord(ExpenseRecord record) {
+        int departmentID = getDepartmentID(record.getDepartment());
+        if (departmentID == -1) {
+            System.out.println("DepartmentID was not found");
+            return;
+        }
 
+        PreparedStatement preparedStatement;
+        ResultSet resultSet;
+        String query = "INSERT INTO expenses (departmentId, amount, date, category) VALUES (?, ?, ?, ?)";
+        try {
+            preparedStatement = DatabaseUtil.getInstance().getConnection().prepareStatement(query);
+            preparedStatement.setInt(1, departmentID);
+            preparedStatement.setDouble(2, record.getAmount());
+            preparedStatement.setString(3, record.getDate());
+            preparedStatement.setString(4, record.getCategory());
+            preparedStatement.executeUpdate();
+            System.out.println("Write was successful");;
+        } catch (Exception e) {
+            System.out.println("Write was not successful");;
+            System.out.println(e.toString());
+        }
+    }
+
+    public int getDepartmentID(String departmentName) {
+        String query = "select departmentId from departments where departmentName = ?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = DatabaseUtil.getInstance().getConnection().prepareStatement(query);
+            preparedStatement.setString(1, departmentName);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt("departmentId");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return -1;
     }
 
 // getter and setters

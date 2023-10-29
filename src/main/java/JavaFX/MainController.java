@@ -11,6 +11,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
@@ -19,11 +21,11 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tableInit();
-        tableDatabase();
+        writeToDatabase();
     }
 
     // expense table database logic
-    public void tableDatabase() {
+    public void writeToDatabase() {
         DatabaseUtil.getInstance().connectToDatabase();
         if (!DatabaseUtil.getInstance().isDatabaseConnected()) {
             System.out.println("Database is not connected.");
@@ -31,6 +33,9 @@ public class MainController implements Initializable {
         }
         System.out.println("Database is connected.");
 
+        for (ExpenseRecord record : list) {
+            DatabaseUtil.getInstance().addRecord(record);
+        }
     }
 
     // expense table FXML logic
@@ -58,7 +63,7 @@ public class MainController implements Initializable {
 
     public ObservableList<ExpenseRecord> list = FXCollections.observableArrayList(
             // amount, category, date, department, description, receipt
-            new ExpenseRecord(20.0, "Lunch", "April", "Khols", "Big Mac")
+            new ExpenseRecord(20.0, "Lunch", "April", "Marketing", "Big Mac")
     );
 
     public void tableInit() {
