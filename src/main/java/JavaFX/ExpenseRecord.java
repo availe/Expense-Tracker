@@ -8,15 +8,13 @@ public class ExpenseRecord {
     private String date;
     private String department;
     private String description;
-    private String receipt;
 
-    public ExpenseRecord(Double amount, String category, String date, String department, String description, String receipt) {
+    public ExpenseRecord(Double amount, String category, String date, String department, String description) {
         this.amount = amount;
         this.category = category;
         this.date = date;
         this.department = department;
         this.description = description;
-        this.receipt = receipt;
     }
 
     public double getAmount() {
@@ -57,13 +55,5 @@ public class ExpenseRecord {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getReceipt() {
-        return receipt;
-    }
-
-    public void setReceipt(String receipt) {
-        this.receipt = receipt;
     }
 }

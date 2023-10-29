@@ -45,7 +45,7 @@ public class MainController implements Initializable {
 
     ObservableList<ExpenseRecord> list = FXCollections.observableArrayList(
             // amount, category, date, department, description, receipt
-            new ExpenseRecord(20.0, "Lunch", "April", "Khols", "Big Mac", "Digital")
+            new ExpenseRecord(20.0, "Lunch", "April", "Khols", "Big Mac")
     );
 
     public void tableInit() {
@@ -54,7 +54,6 @@ public class MainController implements Initializable {
         date.setCellValueFactory(new PropertyValueFactory<ExpenseRecord, String>("date"));
         department.setCellValueFactory(new PropertyValueFactory<ExpenseRecord, String>("department"));
         description.setCellValueFactory(new PropertyValueFactory<ExpenseRecord, String>("description"));
-        receipt.setCellValueFactory(new PropertyValueFactory<ExpenseRecord, String>("receipt"));
 
         table.setItems(list);
     }
