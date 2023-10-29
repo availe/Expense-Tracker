@@ -1,7 +1,6 @@
 package JavaFX;
 
 import Database.DatabaseUtil;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,17 +9,17 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        addInputToComboBox();
         tableInit();
         loadDatabase();
         addExpense.setOnAction(e-> insertNewRow());
@@ -50,7 +49,7 @@ public class MainController implements Initializable {
         }
     }
 
-    // variables
+    // lists
     ObservableList<ExpenseRecord> observableList = FXCollections.observableArrayList();
     List<Integer> primaryKeysList = new ArrayList<>();
 
@@ -75,11 +74,21 @@ public class MainController implements Initializable {
         try {
             Double amount = Double.valueOf(insertAmount.getText());
             String category = insertCategory.getText();
-            String date = String.valueOf(insertDate.getValue());
-            String department = insertDepartment.getId();
+            String department = insertDepartment.getValue();
             String desc = insertDesc.getText();
 
-            Integer expenseId = primaryKeysList.getLast() + 1;
+            // when we use Scenebuilder's datepicker, this converts localDate (similar to Calendar in Kotlin) to a String
+            LocalDate tempDate = insertDate.getValue();
+            DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            String date = tempDate.format(dateFormat);
+
+            int expenseId;
+            if (primaryKeysList.isEmpty()) {
+                expenseId = 0;
+            }
+            else {
+                expenseId = 55; // this is a placeholder until it can be debugged how to dynamically allocate ids
+            }
 
             ExpenseRecord record = new ExpenseRecord(expenseId, amount, category, date, department, desc);
             observableList.add(record);
@@ -87,7 +96,13 @@ public class MainController implements Initializable {
             primaryKeysList.add(expenseId);
         } catch (Exception e) {
             System.out.println("Something went wrong while inserting new row");
+            e.printStackTrace();
         }
+    }
+
+    // combobox categories
+    public void addInputToComboBox() {
+        insertDepartment.setItems(FXCollections.observableArrayList("Engineering", "Marketing", "Information Technology", "Human Resources", "Legal", "Customer Support").sorted());
     }
 
     // FXML variables
@@ -102,7 +117,7 @@ public class MainController implements Initializable {
     private DatePicker insertDate;
 
     @FXML
-    private ComboBox<?> insertDepartment;
+    private ComboBox<String> insertDepartment;
 
     @FXML
     private TextField insertDesc;

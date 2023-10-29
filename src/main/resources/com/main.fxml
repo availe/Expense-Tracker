@@ -227,8 +227,8 @@
                         <Region prefHeight="10.0" prefWidth="40.0" />
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                            <children>
-                              <Button minWidth="110.0" mnemonicParsing="false" style="-fx-background-color: #00BA29;" text="Add Expense" />
-                              <Button minWidth="110.0" mnemonicParsing="false" style="-fx-background-color: #e60000;" text="Delete Expense" />
+                              <Button fx:id="addExpense" minWidth="110.0" mnemonicParsing="false" style="-fx-background-color: #00BA29;" text="Add Expense" />
+                              <Button fx:id="deleteExpense" minWidth="110.0" mnemonicParsing="false" style="-fx-background-color: #e60000;" text="Delete Expense" />
                            </children>
                         </VBox>
                      </children>
