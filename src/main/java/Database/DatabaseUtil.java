@@ -1,4 +1,6 @@
 package Database;
+import JavaFX.ExpenseRecord;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -17,8 +19,12 @@ public final class DatabaseUtil {
 
     // DatabaseUtil's variables
     private String databasePath = "databasePath is not initialized";
+    private String databaseName = "databaseName is not initialized";
+    private Connection connection = null;
 
-    public Connection connectToDatabase(String databaseName) {
+    // DatabaseUtil's methods
+
+    public Connection connectToDatabase() {
         Connection connection = null;
 
         try {
@@ -33,7 +39,7 @@ public final class DatabaseUtil {
         return connection;
     }
 
-    public Connection closeDatabase(Connection connection) {
+    public void closeDatabase() {
         if (connection != null) {
             try {
                 connection.close();
@@ -41,7 +47,19 @@ public final class DatabaseUtil {
                 throw new RuntimeException(e);
             }
         }
-        return connection;
+    }
+
+    public boolean isDatabaseConnected() {
+        try {
+            return !connection.isClosed();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    // not modular but we can try to figure this out later
+    public void addRecord(ExpenseRecord record) {
+
     }
 
 // getter and setters
@@ -52,5 +70,21 @@ public final class DatabaseUtil {
 
     public void setDatabasePath(String databasePath) {
         this.databasePath = databasePath;
+    }
+
+    public String getDatabaseName() {
+        return databaseName;
+    }
+
+    public void setDatabaseName(String databaseName) {
+        this.databaseName = databaseName;
+    }
+
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public void setConnection(Connection connection) {
+        this.connection = connection;
     }
 }

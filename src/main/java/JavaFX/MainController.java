@@ -1,5 +1,6 @@
 package JavaFX;
 
+import Database.DatabaseUtil;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,9 +19,21 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tableInit();
+        tableDatabase();
     }
 
-    // expense Table
+    // expense table database logic
+    public void tableDatabase() {
+        DatabaseUtil.getInstance().connectToDatabase();
+        if (!DatabaseUtil.getInstance().isDatabaseConnected()) {
+            System.out.println("Database is not connected.");
+            return;
+        }
+        System.out.println("Database is connected.");
+
+    }
+
+    // expense table FXML logic
 
     @FXML
     private TableColumn<ExpenseRecord, Double> amount;
@@ -43,7 +56,7 @@ public class MainController implements Initializable {
     @FXML
     private TableView<ExpenseRecord> table;
 
-    ObservableList<ExpenseRecord> list = FXCollections.observableArrayList(
+    public ObservableList<ExpenseRecord> list = FXCollections.observableArrayList(
             // amount, category, date, department, description, receipt
             new ExpenseRecord(20.0, "Lunch", "April", "Khols", "Big Mac")
     );
