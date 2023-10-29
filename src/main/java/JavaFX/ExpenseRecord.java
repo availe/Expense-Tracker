@@ -9,6 +9,7 @@ public class ExpenseRecord {
     private Integer expenseID;
 
     public ExpenseRecord(Integer expenseId, Double amount, String category, String date, String department, String description) {
+        this.expenseID = expenseId;
         this.amount = amount;
         this.category = category;
         this.date = date;

@@ -67,14 +67,15 @@ public final class DatabaseUtil {
 
         PreparedStatement preparedStatement;
         ResultSet resultSet;
-        String query = "INSERT INTO expenses (departmentId, amount, date, category) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO expenses (expenseID, departmentId, amount, date, category, description) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             preparedStatement = DatabaseUtil.getInstance().getConnection().prepareStatement(query);
-            preparedStatement.setInt(1, departmentID);
-            preparedStatement.setDouble(2, record.getAmount());
-            preparedStatement.setString(3, record.getDate());
-            preparedStatement.setString(4, record.getCategory());
-            preparedStatement.setString(5, record.getDescription());
+            preparedStatement.setInt(1, record.getExpenseID());
+            preparedStatement.setInt(2, departmentID);
+            preparedStatement.setDouble(3, record.getAmount());
+            preparedStatement.setString(4, record.getDate());
+            preparedStatement.setString(5, record.getCategory());
+            preparedStatement.setString(6, record.getDescription());
             preparedStatement.executeUpdate();
             System.out.println("Write was successful");;
         } catch (Exception e) {
@@ -113,6 +114,7 @@ public final class DatabaseUtil {
                 String department = resultSet.getString("departmentName");
                 String description = resultSet.getString("description");
 
+                System.out.println("ReadRecord expenseid: " + expenseId);
                 expenses.add(new ExpenseRecord(expenseId, amount, category, date, department, description));
                 System.out.println("Read was successful");
             }

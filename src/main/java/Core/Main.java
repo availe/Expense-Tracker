@@ -11,10 +11,10 @@ public class Main {
     public static void main(String[] args) {
         DatabaseUtil.getInstance().setDatabasePath(databasePath);
         DatabaseUtil.getInstance().setDatabaseName(defaultDatabaseName);
-        //DatabaseUtil.getInstance().setConnection(DatabaseUtil.getInstance().connectToDatabase());
         DatabaseUtil.getInstance().connectToDatabase();
         PluginManager.getInstance().loadPlugins(pluginsPath);
         PluginManager.getInstance().executePlugins();
         JavaFX.MainApplication.setFxmlPath(fxmlPath);
-        Application.launch(JavaFX.MainApplication.class, args);    }
+        Application.launch(JavaFX.MainApplication.class, args);
+    }
 }

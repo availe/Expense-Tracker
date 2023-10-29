@@ -37,6 +37,7 @@ public class MainController implements Initializable {
         for (ExpenseRecord record : observableList) {
             if (!primaryKeysList.contains(record.getExpenseID())) {
                 DatabaseUtil.getInstance().addRecord(record);
+                System.out.println(record.getExpenseID());
             }
         }
     }
@@ -45,7 +46,7 @@ public class MainController implements Initializable {
         List<ExpenseRecord> loadList = DatabaseUtil.getInstance().readRecords();
         observableList.addAll(loadList);
         for (ExpenseRecord record : loadList) {
-            primaryKeysList.add(record.getExpenseID());
+            System.out.println("Loaded expenseId: " + record.getExpenseID());
         }
     }
 
@@ -82,12 +83,14 @@ public class MainController implements Initializable {
             DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             String date = tempDate.format(dateFormat);
 
-            int expenseId;
+            Integer expenseId;
             if (primaryKeysList.isEmpty()) {
                 expenseId = 0;
             }
             else {
-                expenseId = 55; // this is a placeholder until it can be debugged how to dynamically allocate ids
+                System.out.println(primaryKeysList.size());
+                expenseId = primaryKeysList.get(primaryKeysList.size()-1) + 1;
+                System.out.println(expenseId);
             }
 
             ExpenseRecord record = new ExpenseRecord(expenseId, amount, category, date, department, desc);
