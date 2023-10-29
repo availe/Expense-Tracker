@@ -247,11 +247,11 @@
                   </TableView>
                   <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField promptText="Description" />
-                        <ComboBox prefWidth="150.0" promptText="Category" />
-                        <ComboBox prefWidth="150.0" promptText="Department" />
-                        <DatePicker promptText="Date" />
-                        <TextField promptText="Amount" />
+                        <TextField fx:id="insertDesc" promptText="Description" />
+                        <TextField fx:id="insertCategory" promptText="Category" />
+                        <ComboBox fx:id="insertDepartment" prefWidth="150.0" promptText="Department" />
+                        <DatePicker fx:id="insertDate" promptText="Date" />
+                        <TextField fx:id="insertAmount" promptText="Amount" />
                      </children>
                   </HBox>
                </children></VBox>

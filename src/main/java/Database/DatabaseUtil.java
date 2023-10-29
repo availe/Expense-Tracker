@@ -101,18 +101,19 @@ public final class DatabaseUtil {
 
     public List<ExpenseRecord> readRecords() {
         List<ExpenseRecord> expenses = new ArrayList<>();
-        String query = "select e.amount, e.date, e.category, e.description, d.departmentName from expenses e join departments d on e.departmentId = d.departmentId";
+        String query = "select e.expenseId, e.amount, e.date, e.category, e.description, d.departmentName from expenses e join departments d on e.departmentId = d.departmentId";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+                Integer expenseId = resultSet.getInt("expenseId");
                 double amount = resultSet.getDouble("amount");
                 String date = resultSet.getString("date");
                 String category = resultSet.getString("category");
                 String department = resultSet.getString("departmentName");
                 String description = resultSet.getString("description");
 
-                expenses.add(new ExpenseRecord(amount, category, date, department, description));
+                expenses.add(new ExpenseRecord(expenseId, amount, category, date, department, description));
                 System.out.println("Read was successful");
             }
             } catch (SQLException e) {

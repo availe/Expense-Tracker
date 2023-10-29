@@ -22,7 +22,7 @@ public final class PluginManager {
     // pluginManger's methods
     public void loadPlugins(String filePath) {
         // we're utilizing streams, note that .map isn't a hashmap but rather a higher ordered function used to generate a collection
-        this.allDependencies = Util.getInstance().getFileNames(filePath).stream().map(temp -> "plugins." + temp.replace(".java", "")).collect(Collectors.toList());
+        this.allDependencies = Util.getInstance().getFileNames(filePath).stream().map(temp -> "Plugins." + temp.replace(".java", "")).collect(Collectors.toList());
     }
 
     public void executePlugins() {

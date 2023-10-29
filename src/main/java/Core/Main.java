@@ -4,7 +4,7 @@ import Database.DatabaseUtil;
 import javafx.application.Application;
 
 public class Main {
-    private static String pluginsPath = "src/main/java/plugins/";
+    private static String pluginsPath = "src/main/java/Plugins/";
     private static String fxmlPath = "/com/main.fxml";
     private static String databasePath = "src/main/resources/database/";
     private static String defaultDatabaseName = "project.db";

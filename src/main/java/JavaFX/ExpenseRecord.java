@@ -1,6 +1,4 @@
 package JavaFX;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 
 public class ExpenseRecord {
     private double amount;
@@ -8,8 +6,9 @@ public class ExpenseRecord {
     private String date;
     private String department;
     private String description;
+    private Integer expenseID;
 
-    public ExpenseRecord(Double amount, String category, String date, String department, String description) {
+    public ExpenseRecord(Integer expenseId, Double amount, String category, String date, String department, String description) {
         this.amount = amount;
         this.category = category;
         this.date = date;
@@ -55,5 +54,13 @@ public class ExpenseRecord {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getExpenseID() {
+        return expenseID;
+    }
+
+    public void setExpenseID(Integer expenseID) {
+        this.expenseID = expenseID;
     }
 }

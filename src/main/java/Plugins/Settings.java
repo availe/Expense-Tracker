@@ -1,4 +1,4 @@
-package plugins;
+package Plugins;
 
 import ModuleLogic.BaseModule;
 
