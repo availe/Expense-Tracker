@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import javax.swing.event.ChangeListener;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -25,17 +26,25 @@ public class MainController implements Initializable {
         for (int i : primaryKeysList) {
             System.out.println(i);
         }
+
+        table.getSelectionModel().selectedItemProperty().addListener((observableValue, record, newRecord) -> {
+            lastSelectedRow = newRecord;
+        });
+
         addExpense.setOnAction(e-> insertNewRow());
+        deleteExpense.setOnAction(e-> deleteRow());
+
     }
 
     // expense table database logic
     public void writeToDatabase() {
-        DatabaseUtil.getInstance().connectToDatabase();
+        /* this might slow down performance
+
         if (!DatabaseUtil.getInstance().isDatabaseConnected()) {
             System.out.println("Database is not connected.");
             return;
         }
-        System.out.println("Database is connected.");
+        System.out.println("Database is connected.");*/
 
         for (ExpenseRecord record : observableList) {
             if (!primaryKeysList.contains(record.getExpenseID())) {
@@ -55,8 +64,9 @@ public class MainController implements Initializable {
     }
 
     // lists
-    ObservableList<ExpenseRecord> observableList = FXCollections.observableArrayList();
-    List<Integer> primaryKeysList = new ArrayList<>();
+    private ObservableList<ExpenseRecord> observableList = FXCollections.observableArrayList();
+    private List<Integer> primaryKeysList = new ArrayList<>();
+    private ExpenseRecord lastSelectedRow;
 
 
     public void tableInit() {
@@ -107,6 +117,16 @@ public class MainController implements Initializable {
             System.out.println("Something went wrong while inserting new row");
             e.printStackTrace();
         }
+    }
+
+    public void deleteRow() {
+        if (lastSelectedRow == null) {
+            return;
+        }
+        observableList.remove(lastSelectedRow);
+        DatabaseUtil.getInstance().deleteRecord(lastSelectedRow);
+        lastSelectedRow = null;
+        table.refresh();
     }
 
     // combobox categories

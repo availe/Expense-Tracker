@@ -69,7 +69,7 @@ public final class DatabaseUtil {
         ResultSet resultSet;
         String query = "INSERT INTO expenses (expenseID, departmentId, amount, date, category, description) VALUES (?, ?, ?, ?, ?, ?)";
         try {
-            preparedStatement = DatabaseUtil.getInstance().getConnection().prepareStatement(query);
+            preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, record.getExpenseID());
             preparedStatement.setInt(2, departmentID);
             preparedStatement.setDouble(3, record.getAmount());
