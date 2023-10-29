@@ -1,10 +1,10 @@
 package Core;
 
+import ModuleLogic.Module;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import ModuleLogic.Module;
 
 public final class PluginManager {
     private List<String> allDependencies = new ArrayList<>();

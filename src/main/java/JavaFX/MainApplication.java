@@ -1,6 +1,5 @@
 package JavaFX;
 
-import Core.Main;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

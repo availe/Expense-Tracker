@@ -8,7 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import javax.swing.event.ChangeListener;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -64,8 +63,8 @@ public class MainController implements Initializable {
     }
 
     // lists
-    private ObservableList<ExpenseRecord> observableList = FXCollections.observableArrayList();
-    private List<Integer> primaryKeysList = new ArrayList<>();
+    private final ObservableList<ExpenseRecord> observableList = FXCollections.observableArrayList();
+    private final List<Integer> primaryKeysList = new ArrayList<>();
     private ExpenseRecord lastSelectedRow;
 
 
