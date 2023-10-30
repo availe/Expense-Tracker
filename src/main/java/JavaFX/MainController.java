@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -21,7 +22,6 @@ public class MainController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addInputToComboBox();
         tableInit();
-        loadValuesKeys();
         loadDatabase();
         for (int i : primaryKeysList) {
             System.out.println(i);
@@ -31,6 +31,7 @@ public class MainController implements Initializable {
             lastSelectedRow = newRecord;
         });
 
+        loadValuesKeys();
         addExpense.setOnAction(e-> insertNewRow());
         deleteExpense.setOnAction(e-> deleteRow());
 
@@ -242,7 +243,8 @@ public class MainController implements Initializable {
         String insertDate = tempTime.format(dateFormat);
         currDate.setText(insertDate);
 
-        keyl2.setText("Net revenue");
+        keyl1.setText("Net revenue");
+        keyl2.setText("Revenue");
         keyl3.setText("Costs");
         keyl4.setText("Estimated taxes");
 
@@ -279,6 +281,46 @@ public class MainController implements Initializable {
         valuel1.setText(insertNetIncome);
     }
 
+    // more FXML
+
+    @FXML
+    private Label info0;
+
+    @FXML
+    private Label info1;
+
+    @FXML
+    private Label info2;
+
+    @FXML
+    private ImageView newsImage0;
+
+    @FXML
+    private ImageView newsImage1;
+
+    @FXML
+    private ImageView newsImage2;
+
+    @FXML
+    private ImageView notificationIcon;
+
+    @FXML
+    private ImageView profileIcon;
+
+    @FXML
+    private ImageView settingsIcon;
+
+    @FXML
+    private ImageView settingsPage;
+
+    @FXML
+    private Label title0;
+
+    @FXML
+    private Label title1;
+
+    @FXML
+    private Label title2;
 }
 
 
