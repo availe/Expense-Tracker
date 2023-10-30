@@ -28,8 +28,6 @@ public final class DatabaseUtil {
         try {
             Class.forName("org.sqlite.JDBC");
             this.connection = DriverManager.getConnection("jdbc:sqlite:" + databasePath + databaseName);
-            String loading = "jdbc:sqlite:" + databasePath + databaseName;
-            System.out.println(loading);
             Statement statement = this.connection.createStatement();
             statement.execute("PRAGMA foreign_keys = ON;");
         } catch (ClassNotFoundException e) {
@@ -77,7 +75,6 @@ public final class DatabaseUtil {
             preparedStatement.setString(5, record.getCategory());
             preparedStatement.setString(6, record.getDescription());
             preparedStatement.executeUpdate();
-            System.out.println("Write was successful");;
         } catch (Exception e) {
             System.out.println("Write was not successful");;
             System.out.println(e.toString());
@@ -114,9 +111,7 @@ public final class DatabaseUtil {
                 String department = resultSet.getString("departmentName");
                 String description = resultSet.getString("description");
 
-                System.out.println("ReadRecord expenseid: " + expenseId);
                 expenses.add(new ExpenseRecord(expenseId, amount, category, date, department, description));
-                System.out.println("Read was successful");
             }
             } catch (SQLException e) {
             System.out.println("Read was not successful");

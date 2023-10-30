@@ -23,9 +23,6 @@ public class MainController implements Initializable {
         addInputToComboBox();
         tableInit();
         loadDatabase();
-        for (int i : primaryKeysList) {
-            System.out.println(i);
-        }
 
         table.getSelectionModel().selectedItemProperty().addListener((observableValue, record, newRecord) -> {
             lastSelectedRow = newRecord;
@@ -50,7 +47,6 @@ public class MainController implements Initializable {
         for (ExpenseRecord record : observableList) {
             if (!primaryKeysList.contains(record.getExpenseID())) {
                 DatabaseUtil.getInstance().addRecord(record);
-                System.out.println(record.getExpenseID());
             }
         }
     }
@@ -60,7 +56,6 @@ public class MainController implements Initializable {
         observableList.addAll(loadList);
         for (ExpenseRecord record : loadList) {
             primaryKeysList.add(record.getExpenseID());
-            System.out.println("Loaded expenseId: " + record.getExpenseID());
         }
     }
 
@@ -84,7 +79,6 @@ public class MainController implements Initializable {
     public void insertNewRow() {
         // retrieve from our inserts
         if (insertAmount.getText() == null || insertCategory.getText() == null || insertDate.getValue() == null || insertDepartment.getValue() == null || insertDesc.getText() == null) {
-            System.out.println("Cannot insert with null values!");
             return;
         }
         try {
@@ -98,16 +92,12 @@ public class MainController implements Initializable {
             DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             String date = tempDate.format(dateFormat);
 
-            Integer expenseId;
+            int expenseId;
             if (primaryKeysList.isEmpty()) {
                 expenseId = 0;
-                System.out.println("PrimaryKeyList was empty");
             }
             else {
-                System.out.println("PrimaryKeyList was NOT empty");
-                System.out.println(primaryKeysList.size());
                 expenseId = primaryKeysList.get(primaryKeysList.size()-1) + 1;
-                System.out.println(expenseId);
             }
 
             ExpenseRecord record = new ExpenseRecord(expenseId, amount, category, date, department, desc);
@@ -255,7 +245,6 @@ public class MainController implements Initializable {
 
         valuel1.setText("$240,000");
         valuel2.setText("$300,000");
-        System.out.println("Try this" + valuel2.getText());
         updateValues();
         valuel4.setText("$75,000");
 
@@ -272,9 +261,7 @@ public class MainController implements Initializable {
         }
         String insertCost = String.format("$%,.2f", cost);
         valuel3.setText(insertCost);
-        System.out.println(valuel2.getText());
         String revenueTxt = valuel2.getText().replace("$","").replace(",","");
-        System.out.println(revenueTxt);
         double revenue = Double.parseDouble(revenueTxt);
         double netIncome = revenue - cost;
         String insertNetIncome = String.format("%,.2f", netIncome);

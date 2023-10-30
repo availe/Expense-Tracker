@@ -10,10 +10,9 @@ public class MainApplication extends Application {
     private static String fxmlPath = "FXML Path is not initialized";
     @Override
     public void start(Stage stage) throws IOException {
-        System.out.println(fxmlPath);
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(fxmlPath));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        stage.setTitle("Expense Tracker");
         stage.setMaximized(true);
 
         MainController mainController = fxmlLoader.getController();

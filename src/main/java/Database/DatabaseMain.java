@@ -3,7 +3,7 @@ package Database;
 import java.sql.Connection;
 
 public class DatabaseMain {
-    Connection connection;
+    // empty for now, consider class for removal
     DatabaseMain() {
     }
 }
