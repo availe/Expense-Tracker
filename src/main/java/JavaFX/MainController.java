@@ -118,10 +118,9 @@ public class MainController implements Initializable {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
         DatabaseUtil.getInstance().deleteRecord(lastSelectedRow);
         observableList.remove(lastSelectedRow);
-        table.refresh();
         updateValues();
         if (selectedIndex == table.getItems().size() && table.getItems().size() > 0) {
-            table.getSelectionModel().select(selectedIndex);
+            table.getSelectionModel().select(selectedIndex-1);
         } else {
             table.getSelectionModel().clearSelection();
             lastSelectedRow = null;
@@ -233,7 +232,7 @@ public class MainController implements Initializable {
         String insertDate = tempTime.format(dateFormat);
         currDate.setText(insertDate);
 
-        keyl1.setText("Net revenue");
+        keyl1.setText("Net Income");
         keyl2.setText("Revenue");
         keyl3.setText("Costs");
         keyl4.setText("Estimated taxes");
