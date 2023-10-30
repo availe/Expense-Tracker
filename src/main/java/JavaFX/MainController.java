@@ -279,12 +279,17 @@ public class MainController implements Initializable {
         double netIncome = revenue - cost;
         String insertNetIncome = String.format("%,.2f", netIncome);
         valuel1.setText(insertNetIncome);
+
+        companyName.setText("blueStart");
     }
 
     // more FXML
 
     @FXML
     private Label info0;
+
+    @FXML
+    private Label companyName;
 
     @FXML
     private Label info1;
