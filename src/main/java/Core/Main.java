@@ -4,10 +4,10 @@ import Database.DatabaseUtil;
 import javafx.application.Application;
 
 public class Main {
-    private static String pluginsPath = "src/main/java/Plugins/";
-    private static String fxmlPath = "/com/main.fxml";
-    private static String databasePath = "src/main/resources/database/";
-    private static String defaultDatabaseName = "project.db";
+    final private static String pluginsPath = "src/main/java/Plugins/";
+    final private static String fxmlPath = "/com/main.fxml";
+    final private static String databasePath = "src/main/resources/database/";
+    final private static String defaultDatabaseName = "project.db";
     public static void main(String[] args) {
         DatabaseUtil.getInstance().setDatabasePath(databasePath);
         DatabaseUtil.getInstance().setDatabaseName(defaultDatabaseName);

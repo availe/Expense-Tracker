@@ -24,9 +24,7 @@ public class MainController implements Initializable {
         tableInit();
         loadDatabase();
 
-        table.getSelectionModel().selectedItemProperty().addListener((observableValue, record, newRecord) -> {
-            lastSelectedRow = newRecord;
-        });
+        table.getSelectionModel().selectedItemProperty().addListener((observableValue, record, newRecord) -> lastSelectedRow = newRecord);
 
         loadValuesKeys();
         addExpense.setOnAction(e-> insertNewRow());
@@ -66,11 +64,11 @@ public class MainController implements Initializable {
 
 
     public void tableInit() {
-        amount.setCellValueFactory(new PropertyValueFactory<ExpenseRecord, Double>("amount"));
-        category.setCellValueFactory(new PropertyValueFactory<ExpenseRecord, String>("category"));
-        date.setCellValueFactory(new PropertyValueFactory<ExpenseRecord, String>("date"));
-        department.setCellValueFactory(new PropertyValueFactory<ExpenseRecord, String>("department"));
-        description.setCellValueFactory(new PropertyValueFactory<ExpenseRecord, String>("description"));
+        amount.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        category.setCellValueFactory(new PropertyValueFactory<>("category"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        department.setCellValueFactory(new PropertyValueFactory<>("department"));
+        description.setCellValueFactory(new PropertyValueFactory<>("description"));
 
         table.setItems(observableList);
     }
@@ -119,7 +117,7 @@ public class MainController implements Initializable {
         DatabaseUtil.getInstance().deleteRecord(lastSelectedRow);
         observableList.remove(lastSelectedRow);
         updateValues();
-        if (selectedIndex == table.getItems().size() && table.getItems().size() > 0) {
+        if (selectedIndex == table.getItems().size() && !table.getItems().isEmpty()) {
             table.getSelectionModel().select(selectedIndex-1);
         } else {
             table.getSelectionModel().clearSelection();

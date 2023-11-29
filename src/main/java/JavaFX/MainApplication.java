@@ -15,7 +15,7 @@ public class MainApplication extends Application {
         stage.setTitle("Expense Tracker");
         stage.setMaximized(true);
 
-        MainController mainController = fxmlLoader.getController();
+        fxmlLoader.getController();
 
         stage.setScene(scene);
         stage.show();
