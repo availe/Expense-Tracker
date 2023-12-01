@@ -8,9 +8,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 public class MainApplication extends Application {
-    private static String fxmlMainPath = "/com/main.fxml";
-    private static String fxmlProfilePath = "/com/profile.fxml";
-    private static String fxmlSettingsPath = "/com/settings.fxml";
+    private final static String fxmlMainPath = "/com/main.fxml";
+    private final static String fxmlProfilePath = "/com/profile.fxml";
+    private final static String fxmlSettingsPath = "/com/settings.fxml";
     private static Stage primaryStage;
 
     @Override
@@ -31,13 +31,13 @@ public class MainApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(fxmlPath));
         Scene scene = new Scene(fxmlLoader.load());
         primaryStage.setScene(scene);
-        Object controller = fxmlLoader.getController();
+        fxmlLoader.getController();
     }
     private static void switchToMainScene() throws IOException {
         switchSceneLogic(fxmlMainPath);
     }
     private static void switchToProfileScene() throws IOException {
-        switchSceneLogic(fxmlMainPath);
+        switchSceneLogic(fxmlProfilePath);
     }
     private static void switchToSettingsScene() throws IOException {
         switchSceneLogic(fxmlSettingsPath);
