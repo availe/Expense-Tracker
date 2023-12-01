@@ -291,9 +291,6 @@ public class MainController implements Initializable {
     private ImageView newsImage2;
 
     @FXML
-    private ImageView notificationIcon;
-
-    @FXML
     private ImageView profileIcon;
 
     @FXML

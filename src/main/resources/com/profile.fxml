@@ -12,7 +12,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="982.0" prefWidth="1512.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #1B1652;">
@@ -28,14 +27,6 @@
                </HBox.margin>
             </TextField>
             <Region prefHeight="1.0" prefWidth="10.0" HBox.hgrow="ALWAYS" />
-            <ImageView fx:id="notificationIcon" accessibleRole="CONTEXT_MENU" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/menuBar/notifications.png" />
-               </image>
-               <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" top="10.0" />
-               </HBox.margin>
-            </ImageView>
             <ImageView fx:id="settingsIcon" accessibleRole="CONTEXT_MENU" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/menuBar/settings.png" />
@@ -98,7 +89,7 @@
                      </font>
                   </Text>
                   <Region prefHeight="1.0" prefWidth="1.0" VBox.vgrow="ALWAYS" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Department:">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Is Manager:">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -144,7 +135,13 @@
                   <Region prefHeight="1.0" prefWidth="1.0" VBox.vgrow="ALWAYS" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Sign Out" />
+                        <Button mnemonicParsing="false" text="Sign Out">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                           </padding></Button>
                      </children>
                   </HBox>
                   <Region prefHeight="1.0" prefWidth="1.0" VBox.vgrow="ALWAYS" />
