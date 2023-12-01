@@ -8,17 +8,17 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 public class MainApplication extends Application {
-    private static String fxmlPath = "FXML Path is not initialized";
+    private static String fxmlMainPath = "/com/main.fxml";
+    private static String fxmlProfilePath = "/com/profile.fxml";
+    private static String fxmlSettingsPath = "/com/settings.fxml";
+    private static Stage primaryStage;
+
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(fxmlPath));
-        Scene scene = new Scene(fxmlLoader.load());
+        primaryStage = stage;
         stage.setTitle("Expense Tracker");
         stage.setMaximized(true);
-
-        fxmlLoader.getController();
-
-        stage.setScene(scene);
+        switchToMainScene();
         stage.show();
     }
 
@@ -26,13 +26,20 @@ public class MainApplication extends Application {
         launch();
     }
 
-    // getters and setters
-    public static void setFxmlPath(String fxmlPath) {
-        MainApplication.fxmlPath = fxmlPath;
-    }
-
     // scene switchers
-    @FXML
-    private void handleProfileIconClick() {
+    private static void switchSceneLogic(String fxmlPath) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(fxmlPath));
+        Scene scene = new Scene(fxmlLoader.load());
+        primaryStage.setScene(scene);
+        Object controller = fxmlLoader.getController();
+    }
+    private static void switchToMainScene() throws IOException {
+        switchSceneLogic(fxmlMainPath);
+    }
+    private static void switchToProfileScene() throws IOException {
+        switchSceneLogic(fxmlMainPath);
+    }
+    private static void switchToSettingsScene() throws IOException {
+        switchSceneLogic(fxmlSettingsPath);
     }
 }

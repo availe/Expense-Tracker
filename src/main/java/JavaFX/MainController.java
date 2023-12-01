@@ -133,19 +133,13 @@ public class MainController implements Initializable {
     // FXML variables
 
     @FXML
-    private TextField insertAmount;
-
-    @FXML
-    private TextField insertCategory;
+    private TextField insertAmount, insertCategory, insertDesc;
 
     @FXML
     private DatePicker insertDate;
 
     @FXML
     private ComboBox<String> insertDepartment;
-
-    @FXML
-    private TextField insertDesc;
 
     @FXML
     private TableColumn<ExpenseRecord, Double> amount;
@@ -166,63 +160,13 @@ public class MainController implements Initializable {
     private TableView<ExpenseRecord> table;
 
     @FXML
-    private Button addExpense;
-
-    @FXML
-    private Button deleteExpense;
+    private Button addExpense, deleteExpense;
 
     // values and keys FXML
 
     @FXML
-    private Label currDate;
-
-    @FXML
-    private Label keyl1;
-
-    @FXML
-    private Label keyl2;
-
-    @FXML
-    private Label keyl3;
-
-    @FXML
-    private Label keyl4;
-
-    @FXML
-    private Label keyr1;
-
-    @FXML
-    private Label keyr2;
-
-    @FXML
-    private Label keyr3;
-
-    @FXML
-    private Label keyr4;
-
-    @FXML
-    private Label valuel1;
-
-    @FXML
-    private Label valuel2;
-
-    @FXML
-    private Label valuel3;
-
-    @FXML
-    private Label valuel4;
-
-    @FXML
-    private Label valuer1;
-
-    @FXML
-    private Label valuer2;
-
-    @FXML
-    private Label valuer3;
-
-    @FXML
-    private Label valuer4;
+    private Label currDate, keyl1, keyl2, keyl3, keyl4, keyr1, keyr2, keyr3, keyr4,
+            valuel1, valuel2, valuel3, valuel4, valuer1, valuer2, valuer3, valuer4;
 
     public void  loadValuesKeys() {
         LocalDate tempTime = LocalDate.now();
@@ -270,40 +214,10 @@ public class MainController implements Initializable {
     // more FXML
 
     @FXML
-    private Label info0;
+    private Label info0, companyName, info1, info2, title0, title1, title2;
 
     @FXML
-    private Label companyName;
-
-    @FXML
-    private Label info1;
-
-    @FXML
-    private Label info2;
-
-    @FXML
-    private ImageView newsImage0;
-
-    @FXML
-    private ImageView newsImage1;
-
-    @FXML
-    private ImageView newsImage2;
-
-    @FXML
-    private ImageView profileIcon;
-
-    @FXML
-    private ImageView settingsIcon;
-
-    @FXML
-    private Label title0;
-
-    @FXML
-    private Label title1;
-
-    @FXML
-    private Label title2;
+    private ImageView newsImage0, newsImage1, newsImage2, profileIcon, settingsIcon;
 }
 
 
