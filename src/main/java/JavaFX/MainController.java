@@ -300,9 +300,6 @@ public class MainController implements Initializable {
     private ImageView settingsIcon;
 
     @FXML
-    private ImageView settingsPage;
-
-    @FXML
     private Label title0;
 
     @FXML

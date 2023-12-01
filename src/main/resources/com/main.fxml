@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="982.0" prefWidth="1512.0" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.MainController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="982.0" prefWidth="1512.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.MainController">
    <children>
       <HBox prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #1B1652;">
          <children>
@@ -211,7 +211,7 @@
                   </HBox>
                </children></VBox>
             <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="530.0">
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="630.0">
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
@@ -337,23 +337,5 @@
          </VBox.margin>
       </HBox>
       <Region prefHeight="200.0" prefWidth="1512.0" VBox.vgrow="ALWAYS" />
-      <HBox prefHeight="25.0" prefWidth="1512.0">
-         <children>
-            <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
-            <ImageView fx:id="dashboardPage" accessibleRole="BUTTON" fitHeight="50.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/bottomBar/dashboard.png" />
-               </image></ImageView>
-            <Region prefHeight="200.0" prefWidth="200.0" />
-            <ImageView fx:id="settingsPage" accessibleRole="BUTTON" fitHeight="50.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/bottomBar/settingsAlt.png" />
-               </image></ImageView>
-            <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
-         </children>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-      </HBox>
    </children>
 </VBox>

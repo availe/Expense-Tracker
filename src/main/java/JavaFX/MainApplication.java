@@ -1,6 +1,7 @@
 package JavaFX;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -28,5 +29,10 @@ public class MainApplication extends Application {
     // getters and setters
     public static void setFxmlPath(String fxmlPath) {
         MainApplication.fxmlPath = fxmlPath;
+    }
+
+    // scene switchers
+    @FXML
+    private void handleProfileIconClick() {
     }
 }
