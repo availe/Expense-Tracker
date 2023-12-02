@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -29,7 +30,8 @@ public class MainController implements Initializable {
         loadValuesKeys();
         addExpense.setOnAction(e-> insertNewRow());
         deleteExpense.setOnAction(e-> deleteRow());
-
+        profileIcon.setOnMouseClicked(e-> profileIconClick());
+        settingsIcon.setOnMouseClicked(e-> setSettingsIconClick());
     }
 
     // expense table database logic
@@ -145,16 +147,7 @@ public class MainController implements Initializable {
     private TableColumn<ExpenseRecord, Double> amount;
 
     @FXML
-    private TableColumn<ExpenseRecord, String> category;
-
-    @FXML
-    private TableColumn<ExpenseRecord, String> date;
-
-    @FXML
-    private TableColumn<ExpenseRecord, String> department;
-
-    @FXML
-    private TableColumn<ExpenseRecord, String> description;
+    private TableColumn<ExpenseRecord, String> category, date, department, description;
 
     @FXML
     private TableView<ExpenseRecord> table;
@@ -217,7 +210,25 @@ public class MainController implements Initializable {
     private Label info0, companyName, info1, info2, title0, title1, title2;
 
     @FXML
-    private ImageView newsImage0, newsImage1, newsImage2, profileIcon, settingsIcon;
+    private ImageView newsImage0, newsImage1, newsImage2, profileIcon, settingsIcon, homeIcon;
+
+    // change scenes
+    private void profileIconClick() {
+        try {
+            MainApplication.switchToProfileScene();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void setSettingsIconClick() {
+        try {
+            MainApplication.switchToSettingsScene();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
 
 

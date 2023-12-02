@@ -27,7 +27,7 @@
                </HBox.margin>
             </TextField>
             <Region prefHeight="1.0" prefWidth="10.0" HBox.hgrow="ALWAYS" />
-            <ImageView fx:id="settingsIcon1" accessibleRole="CONTEXT_MENU" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="homeIcon" accessibleRole="CONTEXT_MENU" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/menuBar/home.png" />
                </image>

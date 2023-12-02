@@ -16,10 +16,8 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         primaryStage = stage;
-        stage.setTitle("Expense Tracker");
-        stage.setMaximized(true);
         switchToMainScene();
-        stage.show();
+        primaryStage.show();
     }
 
     public static void main(String[] args) {
@@ -27,19 +25,21 @@ public class MainApplication extends Application {
     }
 
     // scene switchers
-    private static void switchSceneLogic(String fxmlPath) throws IOException {
+    protected static void switchSceneLogic(String fxmlPath) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(fxmlPath));
         Scene scene = new Scene(fxmlLoader.load());
         primaryStage.setScene(scene);
+        primaryStage.setMaximized(true);
+        primaryStage.setTitle("Expense Tracker");
         fxmlLoader.getController();
     }
-    private static void switchToMainScene() throws IOException {
+    protected static void switchToMainScene() throws IOException {
         switchSceneLogic(fxmlMainPath);
     }
-    private static void switchToProfileScene() throws IOException {
+    protected static void switchToProfileScene() throws IOException {
         switchSceneLogic(fxmlProfilePath);
     }
-    private static void switchToSettingsScene() throws IOException {
+    protected static void switchToSettingsScene() throws IOException {
         switchSceneLogic(fxmlSettingsPath);
     }
 }
