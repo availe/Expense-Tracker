@@ -8,13 +8,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SettingsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        homeIcon.setOnMouseClicked(e-> homeIconClick());
+        profileIcon.setOnMouseClicked(e-> profileIconClick());
     }
 
     @FXML
@@ -64,4 +66,21 @@ public class SettingsController implements Initializable {
 
     @FXML
     private ImageView settingsIcon;
+
+    // change scenes
+    private void profileIconClick() {
+        try {
+            MainApplication.switchToProfileScene();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void homeIconClick() {
+        try {
+            MainApplication.switchToMainScene();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -32,7 +32,7 @@ public class MainController implements Initializable {
         addExpense.setOnAction(e-> insertNewRow());
         deleteExpense.setOnAction(e-> deleteRow());
         profileIcon.setOnMouseClicked(e-> profileIconClick());
-        settingsIcon.setOnMouseClicked(e-> setSettingsIconClick());
+        settingsIcon.setOnMouseClicked(e-> settingsIconClick());
     }
 
     // expense table database logic
@@ -222,14 +222,13 @@ public class MainController implements Initializable {
         }
     }
 
-    private void setSettingsIconClick() {
+    private void settingsIconClick() {
         try {
             MainApplication.switchToSettingsScene();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
-
 }
 
 

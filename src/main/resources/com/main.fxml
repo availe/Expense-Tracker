@@ -54,288 +54,297 @@
             </ImageView>
          </children>
       </HBox>
-      <HBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="200.0">
+      <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
          <children>
-            <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="443.0" HBox.hgrow="ALWAYS">
+            <HBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="200.0">
                <children>
-                  <Label fx:id="currDate" text="MM/YYYY">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="20.0" top="30.0" />
-                     </VBox.margin>
-                  </Label>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="443.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <Label fx:id="valuel1" text="Value">
-                                       <font>
-                                          <Font name="System Bold" size="32.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="keyl1" text="Key">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <Label fx:id="valuel2" text="Value">
-                                       <font>
-                                          <Font name="System Bold" size="32.0" />
-                                       </font>
-                                       <padding>
-                                          <Insets top="40.0" />
-                                       </padding>
-                                    </Label>
-                                    <Label fx:id="keyl2" text="Key">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <Label fx:id="valuel3" text="Value">
-                                       <font>
-                                          <Font name="System Bold" size="32.0" />
-                                       </font>
-                                       <padding>
-                                          <Insets top="40.0" />
-                                       </padding>
-                                    </Label>
-                                    <Label fx:id="keyl3" text="Key">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <Label fx:id="valuel4" text="Value">
-                                       <font>
-                                          <Font name="System Bold" size="32.0" />
-                                       </font>
-                                       <padding>
-                                          <Insets top="40.0" />
-                                       </padding>
-                                    </Label>
-                                    <Label fx:id="keyl4" text="Key">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <Label fx:id="valuer1" text="Value">
-                                       <font>
-                                          <Font name="System Bold" size="32.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="keyr1" text="Key">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <Label fx:id="valuer2" text="Value">
-                                       <font>
-                                          <Font name="System Bold" size="32.0" />
-                                       </font>
-                                       <padding>
-                                          <Insets top="40.0" />
-                                       </padding>
-                                    </Label>
-                                    <Label fx:id="keyr2" text="Key">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <Label fx:id="valuer3" text="Value">
-                                       <font>
-                                          <Font name="System Bold" size="32.0" />
-                                       </font>
-                                       <padding>
-                                          <Insets top="40.0" />
-                                       </padding>
-                                    </Label>
-                                    <Label fx:id="keyr3" text="Key">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <Label fx:id="valuer4" text="Value">
-                                       <font>
-                                          <Font name="System Bold" size="32.0" />
-                                       </font>
-                                       <padding>
-                                          <Insets top="40.0" />
-                                       </padding>
-                                    </Label>
-                                    <Label fx:id="keyr4" text="Key">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </children></VBox>
-            <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="630.0">
-               <children>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
-                        <Label text="Expense History" HBox.hgrow="ALWAYS">
+                        <Label fx:id="currDate" text="MM/YYYY">
                            <font>
-                              <Font name="System Bold" size="30.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="30.0" />
+                           </VBox.margin>
                         </Label>
-                        <Region prefHeight="10.0" prefWidth="40.0" />
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                        <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="addExpense" minWidth="110.0" mnemonicParsing="false" style="-fx-background-color: #00BA29;" text="Add Expense" />
-                              <Button fx:id="deleteExpense" minWidth="110.0" mnemonicParsing="false" style="-fx-background-color: #e60000;" text="Delete Expense" />
+                              <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label fx:id="valuel1" text="Value">
+                                             <font>
+                                                <Font name="System Bold" size="32.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="keyl1" text="Key">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label fx:id="valuel2" text="Value">
+                                             <font>
+                                                <Font name="System Bold" size="32.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets top="40.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="keyl2" text="Key">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label fx:id="valuel3" text="Value">
+                                             <font>
+                                                <Font name="System Bold" size="32.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets top="40.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="keyl3" text="Key">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label fx:id="valuel4" text="Value">
+                                             <font>
+                                                <Font name="System Bold" size="32.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets top="40.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="keyl4" text="Key">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label fx:id="valuer1" text="Value">
+                                             <font>
+                                                <Font name="System Bold" size="32.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="keyr1" text="Key">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label fx:id="valuer2" text="Value">
+                                             <font>
+                                                <Font name="System Bold" size="32.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets top="40.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="keyr2" text="Key">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label fx:id="valuer3" text="Value">
+                                             <font>
+                                                <Font name="System Bold" size="32.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets top="40.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="keyr3" text="Key">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label fx:id="valuer4" text="Value">
+                                             <font>
+                                                <Font name="System Bold" size="32.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets top="40.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="keyr4" text="Key">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
+                        </HBox>
                      </children>
-                  </HBox>
-                  <TableView fx:id="table" editable="true" prefHeight="350.0" prefWidth="530.0" tableMenuButtonVisible="true">
-                    <columns>
-                      <TableColumn fx:id="description" prefWidth="120.0" text="Description" />
-                      <TableColumn fx:id="category" prefWidth="120.0" text="Category" />
-                        <TableColumn fx:id="department" prefWidth="120.0" text="Department" />
-                        <TableColumn fx:id="date" prefWidth="120.0" text="Date" />
-                        <TableColumn fx:id="amount" prefWidth="120.0" text="Amount" />
-                    </columns>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </TableView>
-                  <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+                  </VBox>
+                  <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="630.0">
                      <children>
-                        <TextField fx:id="insertDesc" promptText="Description" />
-                        <TextField fx:id="insertCategory" promptText="Category" />
-                        <ComboBox fx:id="insertDepartment" prefWidth="150.0" promptText="Department" />
-                        <DatePicker fx:id="insertDate" promptText="Date" />
-                        <TextField fx:id="insertAmount" promptText="Amount" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
+                              <Label text="Expense History" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Label>
+                              <Region prefHeight="10.0" prefWidth="40.0" />
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                                 <children>
+                                    <Button fx:id="addExpense" minWidth="110.0" mnemonicParsing="false" style="-fx-background-color: #00BA29;" text="Add Expense" />
+                                    <Button fx:id="deleteExpense" minWidth="110.0" mnemonicParsing="false" style="-fx-background-color: #e60000;" text="Delete Expense" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <TableView fx:id="table" editable="true" prefHeight="350.0" prefWidth="530.0" tableMenuButtonVisible="true">
+                          <columns>
+                            <TableColumn fx:id="description" prefWidth="120.0" text="Description" />
+                            <TableColumn fx:id="category" prefWidth="120.0" text="Category" />
+                              <TableColumn fx:id="department" prefWidth="120.0" text="Department" />
+                              <TableColumn fx:id="date" prefWidth="120.0" text="Date" />
+                              <TableColumn fx:id="amount" prefWidth="120.0" text="Amount" />
+                          </columns>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </TableView>
+                        <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField fx:id="insertDesc" promptText="Description" />
+                              <TextField fx:id="insertCategory" promptText="Category" />
+                              <ComboBox fx:id="insertDepartment" prefWidth="150.0" promptText="Department" />
+                              <DatePicker fx:id="insertDate" promptText="Date" />
+                              <TextField fx:id="insertAmount" promptText="Amount" />
+                           </children>
+                        </HBox>
                      </children>
-                  </HBox>
-               </children></VBox>
-            <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
+                  </VBox>
+                  <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <Region prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+            <HBox fillHeight="false" prefHeight="200.0" prefWidth="1512.0">
+               <children>
+                  <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
+                  <VBox prefHeight="200.0" prefWidth="360.0" style="-fx-border-color: #EBEBF0;">
+                     <children>
+                        <HBox prefHeight="68.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="newsImage0" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/news/newsPlaceholder.png" />
+                                 </image>
+                              </ImageView>
+                              <VBox alignment="TOP_CENTER" prefHeight="64.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label fx:id="title0" text="Title">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="info0" text="Info" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
+                  <VBox prefHeight="200.0" prefWidth="360.0" style="-fx-border-color: #EBEBF0;">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="newsImage1" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/news/newsPlaceholder.png" />
+                                 </image>
+                              </ImageView>
+                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label fx:id="title1" text="Title">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="info1" text="Info" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
+                  <VBox prefHeight="200.0" prefWidth="360.0" style="-fx-border-color: #EBEBF0;">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="newsImage2" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/news/newsPlaceholder.png" />
+                                 </image>
+                              </ImageView>
+                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label fx:id="title2" text="Title">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="info2" text="Info" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <Region prefHeight="200.0" prefWidth="1512.0" VBox.vgrow="ALWAYS" />
          </children>
-      </HBox>
-      <Region prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-      <HBox fillHeight="false" prefHeight="200.0" prefWidth="1512.0">
-         <children>
-            <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
-            <VBox prefHeight="200.0" prefWidth="360.0" style="-fx-border-color: #EBEBF0;">
-               <children>
-                  <HBox prefHeight="68.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fx:id="newsImage0" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/news/newsPlaceholder.png" />
-                           </image>
-                        </ImageView>
-                        <VBox alignment="TOP_CENTER" prefHeight="64.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label fx:id="title0" text="Title">
-                                 <font>
-                                    <Font name="System Bold" size="18.0" />
-                                 </font></Label>
-                              <Label fx:id="info0" text="Info" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
-            <VBox prefHeight="200.0" prefWidth="360.0" style="-fx-border-color: #EBEBF0;">
-               <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fx:id="newsImage1" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/news/newsPlaceholder.png" />
-                           </image>
-                        </ImageView>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label fx:id="title1" text="Title">
-                                 <font>
-                                    <Font name="System Bold" size="18.0" />
-                                 </font></Label>
-                              <Label fx:id="info1" text="Info" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
-            <VBox prefHeight="200.0" prefWidth="360.0" style="-fx-border-color: #EBEBF0;">
-               <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fx:id="newsImage2" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/news/newsPlaceholder.png" />
-                           </image>
-                        </ImageView>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label fx:id="title2" text="Title">
-                                 <font>
-                                    <Font name="System Bold" size="18.0" />
-                                 </font></Label>
-                              <Label fx:id="info2" text="Info" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
-         </children>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-      </HBox>
-      <Region prefHeight="200.0" prefWidth="1512.0" VBox.vgrow="ALWAYS" />
+      </VBox>
    </children>
 </VBox>

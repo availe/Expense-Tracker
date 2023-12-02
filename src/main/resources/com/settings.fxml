@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="982.0" prefWidth="1512.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="982.0" prefWidth="1512.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.SettingsController">
    <children>
       <HBox prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #1B1652;">
          <children>
@@ -55,57 +55,61 @@
             </ImageView>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+      <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
          <children>
-            <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
-            <Text fx:id="hasPermissions" strokeType="OUTSIDE" strokeWidth="0.0" text="Has Permissions:">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
+                  <Text fx:id="hasPermissions" strokeType="OUTSIDE" strokeWidth="0.0" text="Has Permissions:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <TableView prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="id" prefWidth="185.0" text="Id" />
+                <TableColumn fx:id="email" prefWidth="185.0" text="Email" />
+                  <TableColumn fx:id="first_name" prefWidth="185.0" text="First Name" />
+                  <TableColumn fx:id="last_name" prefWidth="185.0" text="Last Name" />
+                  <TableColumn fx:id="created_on" prefWidth="185.0" text="Created On" />
+                  <TableColumn fx:id="last_login" prefWidth="185.0" text="Last Login" />
+                  <TableColumn fx:id="is_manager" prefWidth="185.0" text="Is Manager" />
+                  <TableColumn fx:id="is_root" prefWidth="185.0" text="Is Root" />
+              </columns>
+            </TableView>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Region prefHeight="1.0" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="addUser" mnemonicParsing="false" text="Add User">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="removeUser" mnemonicParsing="false" text="Remove User">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="addManager" mnemonicParsing="false" text="Add Manager">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="removeManager" mnemonicParsing="false" text="Remove Manager">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Region prefHeight="1.0" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
          </children>
-      </HBox>
-      <TableView prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-        <columns>
-          <TableColumn fx:id="id" prefWidth="185.0" text="Id" />
-          <TableColumn fx:id="email" prefWidth="185.0" text="Email" />
-            <TableColumn fx:id="first_name" prefWidth="185.0" text="First Name" />
-            <TableColumn fx:id="last_name" prefWidth="185.0" text="Last Name" />
-            <TableColumn fx:id="created_on" prefWidth="185.0" text="Created On" />
-            <TableColumn fx:id="last_login" prefWidth="185.0" text="Last Login" />
-            <TableColumn fx:id="is_manager" prefWidth="185.0" text="Is Manager" />
-            <TableColumn fx:id="is_root" prefWidth="185.0" text="Is Root" />
-        </columns>
-      </TableView>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Region prefHeight="1.0" prefWidth="150.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="addUser" mnemonicParsing="false" text="Add User">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-            <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="removeUser" mnemonicParsing="false" text="Remove User">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-            <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="addManager" mnemonicParsing="false" text="Add Manager">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-            <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="removeManager" mnemonicParsing="false" text="Remove Manager">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-            <Region prefHeight="1.0" prefWidth="150.0" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
+      </VBox>
    </children>
 </VBox>

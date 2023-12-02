@@ -8,13 +8,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ProfileController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        homeIcon.setOnMouseClicked(e-> homeIconClick());
+        settingsIcon.setOnMouseClicked(e-> settingsIconClick());
     }
 
     @FXML
@@ -27,4 +29,21 @@ public class ProfileController implements Initializable {
     private ImageView homeIcon, profileIcon, settingsIcon;
     @FXML
     private Button logoutBtn;
+
+    // change scenes
+    private void homeIconClick() {
+        try {
+            MainApplication.switchToMainScene();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void settingsIconClick() {
+        try {
+            MainApplication.switchToSettingsScene();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -2,6 +2,7 @@ package JavaFX;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -26,10 +27,17 @@ public class MainApplication extends Application {
     // scene switchers
     protected static void switchSceneLogic(String fxmlPath) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(fxmlPath));
-        Scene scene = new Scene(fxmlLoader.load());
-        primaryStage.setScene(scene);
-        primaryStage.setMaximized(true);
-        primaryStage.setTitle("Expense Tracker");
+        Parent newRoot = fxmlLoader.load();
+
+        // if no scene exists yet create one, else change the root
+        if (primaryStage.getScene() == null) {
+            Scene scene = new Scene(newRoot);
+            primaryStage.setScene(scene);
+            primaryStage.setMaximized(true);
+            primaryStage.setTitle("Expense Tracker");
+        } else {
+            primaryStage.getScene().setRoot(newRoot);
+        }
         fxmlLoader.getController();
     }
     protected static void switchToMainScene() throws IOException {
