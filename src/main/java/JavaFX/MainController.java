@@ -1,6 +1,7 @@
 package JavaFX;
 
 import Database.DatabaseUtil;
+import Database.ExpenseManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -46,13 +47,13 @@ public class MainController implements Initializable {
 
         for (ExpenseRecord record : observableList) {
             if (!primaryKeysList.contains(record.getExpenseID())) {
-                DatabaseUtil.getInstance().addRecord(record);
+                ExpenseManager.getInstance().addRecord(record);
             }
         }
     }
 
     public void loadDatabase() {
-        List<ExpenseRecord> loadList = DatabaseUtil.getInstance().readRecords();
+        List<ExpenseRecord> loadList = ExpenseManager.getInstance().readRecords();
         observableList.addAll(loadList);
         for (ExpenseRecord record : loadList) {
             primaryKeysList.add(record.getExpenseID());
@@ -116,7 +117,7 @@ public class MainController implements Initializable {
             return;
         }
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
-        DatabaseUtil.getInstance().deleteRecord(lastSelectedRow);
+        ExpenseManager.getInstance().deleteRecord(lastSelectedRow);
         observableList.remove(lastSelectedRow);
         updateValues();
         if (selectedIndex == table.getItems().size() && !table.getItems().isEmpty()) {
