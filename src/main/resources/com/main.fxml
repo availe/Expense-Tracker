@@ -235,11 +235,11 @@
                   </HBox>
                   <TableView fx:id="table" editable="true" prefHeight="350.0" prefWidth="530.0" tableMenuButtonVisible="true">
                     <columns>
-                      <TableColumn fx:id="description" prefWidth="150.0" text="Description" />
-                      <TableColumn fx:id="category" prefWidth="100.0" text="Category" />
-                        <TableColumn fx:id="department" prefWidth="95.0" text="Department" />
-                        <TableColumn fx:id="date" prefWidth="85.0" text="Date" />
-                        <TableColumn fx:id="amount" prefWidth="85.0" text="Amount" />
+                      <TableColumn fx:id="description" prefWidth="120.0" text="Description" />
+                      <TableColumn fx:id="category" prefWidth="120.0" text="Category" />
+                        <TableColumn fx:id="department" prefWidth="120.0" text="Department" />
+                        <TableColumn fx:id="date" prefWidth="120.0" text="Date" />
+                        <TableColumn fx:id="amount" prefWidth="120.0" text="Amount" />
                     </columns>
                      <VBox.margin>
                         <Insets />
