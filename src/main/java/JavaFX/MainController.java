@@ -37,14 +37,6 @@ public class MainController implements Initializable {
 
     // expense table database logic
     public void writeToDatabase() {
-        /* this might slow down performance
-
-        if (!DatabaseUtil.getInstance().isDatabaseConnected()) {
-            System.out.println("Database is not connected.");
-            return;
-        }
-        System.out.println("Database is connected.");*/
-
         for (ExpenseRecord record : observableList) {
             if (!primaryKeysList.contains(record.getExpenseID())) {
                 ExpenseManager.getInstance().addRecord(record);

@@ -68,16 +68,17 @@
                   <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
-            <TableView prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+            <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
               <columns>
                 <TableColumn fx:id="id" prefWidth="185.0" text="Id" />
-                <TableColumn fx:id="email" prefWidth="185.0" text="Email" />
-                  <TableColumn fx:id="first_name" prefWidth="185.0" text="First Name" />
-                  <TableColumn fx:id="last_name" prefWidth="185.0" text="Last Name" />
-                  <TableColumn fx:id="created_on" prefWidth="185.0" text="Created On" />
-                  <TableColumn fx:id="last_login" prefWidth="185.0" text="Last Login" />
-                  <TableColumn fx:id="is_manager" prefWidth="185.0" text="Is Manager" />
-                  <TableColumn fx:id="is_root" prefWidth="185.0" text="Is Root" />
+                <TableColumn fx:id="email" prefWidth="160.0" text="Email" />
+                  <TableColumn fx:id="first_name" prefWidth="160.0" text="First Name" />
+                  <TableColumn fx:id="last_name" prefWidth="160.0" text="Last Name" />
+                  <TableColumn fx:id="created_on" prefWidth="160.0" text="Created On" />
+                  <TableColumn fx:id="last_login" prefWidth="160.0" text="Last Login" />
+                  <TableColumn fx:id="is_manager" prefWidth="160.0" text="Is Manager" />
+                  <TableColumn fx:id="is_root" prefWidth="160.0" text="Is Root" />
+                  <TableColumn fx:id="has_approval" prefWidth="160.0" text="Has Approval" />
               </columns>
             </TableView>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">

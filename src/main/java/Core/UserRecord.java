@@ -9,10 +9,11 @@ public class UserRecord {
     private String lastLogin;
     private Boolean isManager;
     private Boolean isRoot;
+    private Boolean hasApproval;
     private String passHash;
 
-    public UserRecord(Integer id, String firstName, String lastName, String email, String createdOn, String lastLogin, Boolean isManager, Boolean isRoot, String passHash) {
-        this.userId = id;
+    public UserRecord(Integer userId, String firstName, String lastName, String email, String createdOn, String lastLogin, Boolean isManager, Boolean isRoot, Boolean hasApproval, String passHash) {
+        this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -20,6 +21,7 @@ public class UserRecord {
         this.lastLogin = lastLogin;
         this.isManager = isManager;
         this.isRoot = isRoot;
+        this.hasApproval = hasApproval;
         this.passHash = passHash;
     }
 
@@ -47,15 +49,18 @@ public class UserRecord {
         return lastLogin;
     }
 
-    public Boolean getManager() {
+    public Boolean getIsManager() {
         return isManager;
     }
 
-    public Boolean getRoot() {
+    public Boolean getIsRoot() {
         return isRoot;
     }
 
     public String getPassHash() {
         return passHash;
+    }
+    public Boolean getHasApproval() {
+        return hasApproval;
     }
 }

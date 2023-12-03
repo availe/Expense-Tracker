@@ -35,11 +35,12 @@ public final class UserManager {
                         resultSet.getString("firstName"),
                         resultSet.getString("lastName"),
                         resultSet.getString("email"),
-                        resultSet.getString("createdOn"),
+                        resultSet.getString("createdAt"),
                         resultSet.getString("lastLogin"),
                         resultSet.getBoolean("isManager"),
                         resultSet.getBoolean("isRoot"),
-                        resultSet.getString("passHash")));
+                        resultSet.getBoolean("hasApproval"),
+                        resultSet.getString("passwordHash")));
             }
         }
         return users;
@@ -54,8 +55,8 @@ public final class UserManager {
             preparedStatement.setString(4, newUser.getPassHash());
             preparedStatement.setString(5, newUser.getCreatedOn());
             preparedStatement.setString(6, newUser.getLastLogin());
-            preparedStatement.setBoolean(7, newUser.getManager());
-            preparedStatement.setBoolean(8, newUser.getRoot());
+            preparedStatement.setBoolean(7, newUser.getIsManager());
+            preparedStatement.setBoolean(8, newUser.getIsRoot());
             preparedStatement.executeUpdate();
         }
     }
@@ -68,8 +69,9 @@ public final class UserManager {
         }
     }
 
+    // we use 1 and 0 instead of true and false since sqlite doesn't support booleans, so we're using integers instead
     public void upgradeUserToManager(int userId) throws SQLException {
-        String query = "update users set isManager = true where userId = ?";
+        String query = "update users set isManager = 1 where userId = ?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, userId);
             preparedStatement.executeUpdate();
@@ -77,7 +79,7 @@ public final class UserManager {
     }
 
     public void downgradeUserFromManager (int userId) throws SQLException {
-        String query = "update users set isManager = false where userId = ?";
+        String query = "update users set isManager = 0 where userId = ?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, userId);
             preparedStatement.executeUpdate();
