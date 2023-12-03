@@ -19,11 +19,10 @@ public class SettingsController implements Initializable {
         profileIcon.setOnMouseClicked(e-> profileIconClick());
     }
 
-    @FXML
-    private Button addManager, addUser;
-
-    @FXML
-    private Label companyName;
+    @FXML private Button addManager, addUser, removeManager, removeUser;
+    @FXML private ImageView homeIcon, profileIcon, settingsIcon;
+    @FXML private Label companyName;
+    @FXML private Text hasPermissions;
 
     @FXML
     private TableColumn<?, ?> created_on;
@@ -33,12 +32,6 @@ public class SettingsController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> first_name;
-
-    @FXML
-    private Text hasPermissions;
-
-    @FXML
-    private ImageView homeIcon;
 
     @FXML
     private TableColumn<?, ?> id;
@@ -54,18 +47,6 @@ public class SettingsController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> last_name;
-
-    @FXML
-    private ImageView profileIcon;
-
-    @FXML
-    private Button removeManager;
-
-    @FXML
-    private Button removeUser;
-
-    @FXML
-    private ImageView settingsIcon;
 
     // change scenes
     private void profileIconClick() {

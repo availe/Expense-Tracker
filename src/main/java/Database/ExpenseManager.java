@@ -32,7 +32,7 @@ public final class ExpenseManager {
 
         PreparedStatement preparedStatement;
         ResultSet resultSet;
-        String query = "INSERT INTO expenses (expenseID, departmentId, amount, date, category, description) VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "insert into expenses (expenseID, departmentId, amount, date, category, description) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, record.getExpenseID());
