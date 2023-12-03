@@ -1,9 +1,6 @@
 package Database;
-import JavaFX.ExpenseRecord;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public final class DatabaseUtil {
     // setup for singleton class

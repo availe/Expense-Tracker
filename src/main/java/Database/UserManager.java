@@ -11,4 +11,9 @@ public final class UserManager {
         if (firstInstance == null) firstInstance = new UserManager();
         return firstInstance;
     }
+
+    // methods
+    public void readRecords() {
+
+    }
 }

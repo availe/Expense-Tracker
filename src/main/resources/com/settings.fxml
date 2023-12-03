@@ -18,7 +18,7 @@
    <children>
       <HBox prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #1B1652;">
          <children>
-            <Label fx:id="companyName" style="-fx-text-fill: #ffffff;" text="CompanyName">
+            <Label fx:id="companyName" style="-fx-text-fill: #ffffff;" text="blueStart">
                <HBox.margin>
                   <Insets bottom="5.0" left="20.0" top="15.0" />
                </HBox.margin>

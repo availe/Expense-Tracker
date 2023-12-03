@@ -11,8 +11,6 @@ public class Main {
         DatabaseUtil.getInstance().setDatabasePath(databasePath);
         DatabaseUtil.getInstance().setDatabaseName(defaultDatabaseName);
         DatabaseUtil.getInstance().connectToDatabase();
-        PluginManager.getInstance().loadPlugins(pluginsPath);
-        PluginManager.getInstance().executePlugins();
         Application.launch(JavaFX.MainApplication.class, args);
     }
 }

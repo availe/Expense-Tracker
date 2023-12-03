@@ -13,4 +13,6 @@ module com.example.expensetracker {
     exports JavaFX;
     exports Database;
     opens JavaFX to javafx.fxml;
+    exports Core;
+    opens Core to javafx.fxml;
 }

@@ -1,4 +1,4 @@
-package JavaFX;
+package Core;
 
 public class ExpenseRecord {
     private double amount;

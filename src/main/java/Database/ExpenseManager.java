@@ -1,6 +1,6 @@
 package Database;
 
-import JavaFX.ExpenseRecord;
+import Core.ExpenseRecord;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,8 +23,6 @@ public final class ExpenseManager {
     }
 
     // methods
-
-    // not modular but we can try to figure this out later
     public void addRecord(ExpenseRecord record) {
         int departmentID = getDepartmentID(record.getDepartment());
         if (departmentID == -1) {

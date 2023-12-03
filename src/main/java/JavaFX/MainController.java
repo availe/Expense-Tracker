@@ -1,6 +1,6 @@
 package JavaFX;
 
-import Database.DatabaseUtil;
+import Core.ExpenseRecord;
 import Database.ExpenseManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -201,8 +201,6 @@ public class MainController implements Initializable {
         double netIncome = revenue - cost;
         String insertNetIncome = String.format("%,.2f", netIncome);
         valuel1.setText(insertNetIncome);
-
-        companyName.setText("blueStart");
     }
 
     // more FXML
