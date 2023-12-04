@@ -85,4 +85,29 @@ public final class UserManager {
             preparedStatement.executeUpdate();
         }
     }
+
+    public UserRecord authenticateUser (String email, String password) throws SQLException {
+        String query = "select * from users where email = ? and passwordHash = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, password);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return new UserRecord(
+                        resultSet.getInt("userId"),
+                        resultSet.getString("firstName"),
+                        resultSet.getString("lastName"),
+                        resultSet.getString("email"),
+                        resultSet.getString("createdAt"),
+                        resultSet.getString("lastLogin"),
+                        resultSet.getBoolean("isManager"),
+                        resultSet.getBoolean("isRoot"),
+                        resultSet.getBoolean("hasApproval"),
+                        resultSet.getString("passwordHash"));
+            } else {
+                return null;
+            }
+        }
+    }
+
 }

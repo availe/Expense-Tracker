@@ -28,35 +28,27 @@ public class UserRecord {
     public Integer getUserId() {
         return userId;
     }
-
     public String getFirstName() {
         return firstName;
     }
-
     public String getLastName() {
         return lastName;
     }
-
     public String getEmail() {
         return email;
     }
-
     public String getCreatedOn() {
         return createdOn;
     }
-
     public String getLastLogin() {
         return lastLogin;
     }
-
     public Boolean getIsManager() {
         return isManager;
     }
-
     public Boolean getIsRoot() {
         return isRoot;
     }
-
     public String getPassHash() {
         return passHash;
     }

@@ -11,12 +11,13 @@ public class MainApplication extends Application {
     private final static String fxmlMainPath = "/com/main.fxml";
     private final static String fxmlProfilePath = "/com/profile.fxml";
     private final static String fxmlSettingsPath = "/com/settings.fxml";
+    private final static String fxmlLoginPath = "/com/login.fxml";
     private static Stage primaryStage;
 
     @Override
     public void start(Stage stage) throws IOException {
         primaryStage = stage;
-        switchToMainScene();
+        switchToLoginScene();
         primaryStage.show();
     }
 
@@ -48,5 +49,8 @@ public class MainApplication extends Application {
     }
     protected static void switchToSettingsScene() throws IOException {
         switchSceneLogic(fxmlSettingsPath);
+    }
+    protected static void switchToLoginScene() throws IOException {
+        switchSceneLogic(fxmlLoginPath);
     }
 }

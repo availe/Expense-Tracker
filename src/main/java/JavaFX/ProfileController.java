@@ -1,5 +1,7 @@
 package JavaFX;
 
+import Core.CurrentSession;
+import Core.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -13,22 +15,39 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ProfileController implements Initializable {
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        homeIcon.setOnMouseClicked(e-> homeIconClick());
-        settingsIcon.setOnMouseClicked(e-> settingsIconClick());
+    @FXML private Text company, createdOn, email, firstName, isManager, lastName;
+    @FXML private Label companyName;
+    @FXML private TextField confirmPassInput, newPassInput;
+    @FXML private ImageView homeIcon, profileIcon, settingsIcon;
+    @FXML private Button logoutBtn;
+
+    public void loadData() {
+        firstName.setText("First Name: " + CurrentSession.getInstance().getCurrentUser().getFirstName());
+        lastName.setText("Last Name: " + CurrentSession.getInstance().getCurrentUser().getLastName());
+        email.setText("Email: " + CurrentSession.getInstance().getCurrentUser().getEmail());
+        createdOn.setText("Created On: " + CurrentSession.getInstance().getCurrentUser().getCreatedOn().toString());
+        company.setText("Company: blueStart");
+        if (CurrentSession.getInstance().getCurrentUser().getIsManager()) {
+            isManager.setText("Manger: Yes");
+        } else {
+            isManager.setText("Manager: No");
+        }
     }
 
-    @FXML
-    private Text company, createdOn, email, firstName, isManager, lastName;
-    @FXML
-    private Label companyName;
-    @FXML
-    private TextField confirmPassInput, newPassInput;
-    @FXML
-    private ImageView homeIcon, profileIcon, settingsIcon;
-    @FXML
-    private Button logoutBtn;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadData();
+        homeIcon.setOnMouseClicked(e-> homeIconClick());
+        settingsIcon.setOnMouseClicked(e-> settingsIconClick());
+        logoutBtn.setOnAction(e-> {
+            try {
+                CurrentSession.getInstance().setCurrentUser(null);
+                MainApplication.switchToLoginScene();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+    }
 
     // change scenes
     private void homeIconClick() {
