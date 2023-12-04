@@ -11,7 +11,6 @@ public class CurrentSession {
         return firstInstance;
     }
 
-    // fields
     private UserRecord currentUser;
 
     public UserRecord getCurrentUser() {
