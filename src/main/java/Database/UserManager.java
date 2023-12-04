@@ -47,16 +47,15 @@ public final class UserManager {
     }
 
     public void addUser(UserRecord newUser) throws SQLException {
-        String query = "insert into users (firstName, lastName, email, passwordHash, createdAt, lastLogin, isManager, isRoot) values (?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "insert into users (firstName, lastName, email, passwordHash, isManager, isRoot, lastLogin) values (?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, newUser.getFirstName());
             preparedStatement.setString(2, newUser.getLastName());
             preparedStatement.setString(3, newUser.getEmail());
             preparedStatement.setString(4, newUser.getPassHash());
-            preparedStatement.setString(5, newUser.getCreatedOn());
-            preparedStatement.setString(6, newUser.getLastLogin());
-            preparedStatement.setBoolean(7, newUser.getIsManager());
-            preparedStatement.setBoolean(8, newUser.getIsRoot());
+            preparedStatement.setBoolean(5, newUser.getIsManager());
+            preparedStatement.setBoolean(6, newUser.getIsRoot());
+            preparedStatement.setString(7, newUser.getLastLogin());
             preparedStatement.executeUpdate();
         }
     }
@@ -92,6 +91,9 @@ public final class UserManager {
             preparedStatement.setString(1, email);
             preparedStatement.setString(2, password);
             ResultSet resultSet = preparedStatement.executeQuery();
+            // don't let user login if they haven't been approved yet
+            if (resultSet.getBoolean("hasApproval") == false) return null;
+
             if (resultSet.next()) {
                 return new UserRecord(
                         resultSet.getInt("userId"),
@@ -112,6 +114,27 @@ public final class UserManager {
 
     public void approveUser(int userId) {
         String query = "update users set hasApproval = 1 where userId = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, userId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void updatePassword(int userId, String password) {
+        String query = "update users set passwordHash = ? where userId = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, password);
+            preparedStatement.setInt(2, userId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void updateLastLogin(int userId) {
+        String query = "update users set lastLogin = CURRENT_TIMESTAMP where userId = ?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, userId);
             preparedStatement.executeUpdate();

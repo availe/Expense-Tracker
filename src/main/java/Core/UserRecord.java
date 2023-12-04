@@ -25,6 +25,17 @@ public class UserRecord {
         this.passHash = passHash;
     }
 
+    public UserRecord(Integer userId, String firstName, String lastName, String email, Boolean isManager, Boolean isRoot, Boolean hasApproval, String passHash) {
+        this.userId = userId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.isManager = isManager;
+        this.isRoot = isRoot;
+        this.hasApproval = hasApproval;
+        this.passHash = passHash;
+    }
+
     public Integer getUserId() {
         return userId;
     }
@@ -55,4 +66,5 @@ public class UserRecord {
     public Boolean getHasApproval() {
         return hasApproval;
     }
+    public void setPassHash(String passHash) { this.passHash = passHash; }
 }

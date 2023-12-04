@@ -26,6 +26,8 @@ public class LoginController implements Initializable {
             login_password.setText("");
             if (user != null) {
                 CurrentSession.getInstance().setCurrentUser(user);
+                Integer userId = CurrentSession.getInstance().getCurrentUser().getUserId();
+                UserManager.getInstance().updateLastLogin(userId);
                 MainApplication.switchToMainScene();
             }
         }
@@ -33,7 +35,7 @@ public class LoginController implements Initializable {
 
     void signUp() {
         if ((insert_password.getText().equals(insert_confirm_password.getText())) && (!insert_email.getText().isEmpty() && !insert_first_name.getText().isEmpty() && !insert_last_name.getText().isEmpty() && !insert_password.getText().isEmpty() && !insert_confirm_password.getText().isEmpty())) {
-            UserRecord newUser = new UserRecord(null, insert_first_name.getText(), insert_last_name.getText(), insert_email.getText(), null, null, false, false, false, insert_password.getText());
+            UserRecord newUser = new UserRecord(null, insert_first_name.getText(), insert_last_name.getText(), insert_email.getText(), false, false, false, insert_password.getText());
             try {
                 UserManager.getInstance().addUser(newUser);
                 signup_btn.setStyle("-fx-background-color: #42f572");

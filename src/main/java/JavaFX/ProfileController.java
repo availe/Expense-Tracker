@@ -2,6 +2,7 @@ package JavaFX;
 
 import Core.CurrentSession;
 import Core.Main;
+import Database.UserManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -19,7 +20,7 @@ public class ProfileController implements Initializable {
     @FXML private Label companyName;
     @FXML private TextField confirmPassInput, newPassInput;
     @FXML private ImageView homeIcon, profileIcon, settingsIcon;
-    @FXML private Button logoutBtn;
+    @FXML private Button logoutBtn, changePasswordBtn;
 
     public void loadData() {
         firstName.setText("First Name: " + CurrentSession.getInstance().getCurrentUser().getFirstName());
@@ -34,9 +35,17 @@ public class ProfileController implements Initializable {
         }
     }
 
+    public void changePassword() {
+        if (newPassInput.getText().equals(confirmPassInput.getText())) {
+            CurrentSession.getInstance().getCurrentUser().setPassHash(newPassInput.getText());
+            UserManager.getInstance().updatePassword(CurrentSession.getInstance().getCurrentUser().getUserId(), newPassInput.getText());
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadData();
+        changePasswordBtn.setOnAction(e-> changePassword());
         homeIcon.setOnMouseClicked(e-> homeIconClick());
         settingsIcon.setOnMouseClicked(e-> settingsIconClick());
         logoutBtn.setOnAction(e-> {

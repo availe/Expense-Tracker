@@ -107,13 +107,16 @@ public class SettingsController implements Initializable {
         }
     }
 
-    public void removeUser() throws SQLException {
+    public void removeUser() throws SQLException, IOException {
         UserRecord user = table.getSelectionModel().getSelectedItem();
         if (rootAccessOnly(user)) { return; }
         if (user != null) {
             UserManager.getInstance().deleteUser(user.getUserId());
             loadTable();
         }
+        // if user deletes themselves switch back to log in screen - isn't currently used though as managers can't delete managers (thus can't delete themselves)
+        if (user.getUserId() == CurrentSession.getInstance().getCurrentUser().getUserId())
+            MainApplication.switchToLoginScene();
     }
 
     public void btnsListener() {
@@ -136,7 +139,7 @@ public class SettingsController implements Initializable {
         removeUser.setOnAction(e-> {
             try {
                 removeUser();
-            } catch (SQLException ex) {
+            } catch (SQLException | IOException ex) {
                 throw new RuntimeException(ex);
             }
         });
