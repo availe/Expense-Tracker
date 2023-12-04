@@ -1,5 +1,6 @@
 package JavaFX;
 
+import Core.CurrentSession;
 import Core.ExpenseRecord;
 import Core.UserRecord;
 import Database.ExpenseManager;
@@ -32,17 +33,27 @@ public class SettingsController implements Initializable {
     @FXML private TableColumn<UserRecord, Integer> id, is_manager, is_root, has_approval;
     @FXML private TableColumn<UserRecord, String> first_name, last_name, email, created_on, last_login;
     private ObservableList<UserRecord> usersObservableList = FXCollections.observableArrayList();
-    private UserRecord lastSelectedRow;
-    private final List<Integer> primaryKeysList = new ArrayList<>();
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         changeScenesListener();
+        displayPermission();
         tableInit();
         loadTable();
+        btnsListener();
+
     }
 
-    private void tableInit() {
+    public void displayPermission() {
+        if (CurrentSession.getInstance().getCurrentUser().getIsRoot()) {
+            hasPermissions.setText("Permission: Root");
+        } else if (CurrentSession.getInstance().getCurrentUser().getIsManager()) {
+            hasPermissions.setText("Permission: Manager");
+        } else {
+            hasPermissions.setText("Permission: User");
+        }
+    }
+
+    public void tableInit() {
         try {
             List<UserRecord> usersTable = UserManager.getInstance().readUsers();
         } catch (SQLException e) {
@@ -61,6 +72,7 @@ public class SettingsController implements Initializable {
     }
 
     public void loadTable() {
+        usersObservableList.clear();
         List<UserRecord> loadList = null;
         try {
             loadList = UserManager.getInstance().readUsers();
@@ -68,12 +80,73 @@ public class SettingsController implements Initializable {
             throw new RuntimeException(e);
         }
         usersObservableList.addAll(loadList);
-        for (UserRecord user : loadList) {
-            primaryKeysList.add(user.getUserId());
+    }
+
+    public void addManager() throws SQLException {
+        UserRecord user = table.getSelectionModel().getSelectedItem();
+        if (user != null) {
+            UserManager.getInstance().upgradeUserToManager(user.getUserId());
+            loadTable();
         }
     }
 
-    void changeScenesListener() {
+    public void removeManager() throws SQLException {
+        UserRecord user = table.getSelectionModel().getSelectedItem();
+        if (rootAccessOnly(user)) { return; }
+        if (user != null) {
+            UserManager.getInstance().downgradeUserFromManager(user.getUserId());
+            loadTable();
+        }
+    }
+
+    public void approveUser() {
+        UserRecord user = table.getSelectionModel().getSelectedItem();
+        if (user != null) {
+            UserManager.getInstance().approveUser(user.getUserId());
+            loadTable();
+        }
+    }
+
+    public void removeUser() throws SQLException {
+        UserRecord user = table.getSelectionModel().getSelectedItem();
+        if (rootAccessOnly(user)) { return; }
+        if (user != null) {
+            UserManager.getInstance().deleteUser(user.getUserId());
+            loadTable();
+        }
+    }
+
+    public void btnsListener() {
+        if (CurrentSession.getInstance().getCurrentUser().getIsManager() == false) { return; }
+        addManager.setOnAction(e-> {
+            try {
+                addManager();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        removeManager.setOnAction(e-> {
+            try {
+                removeManager();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        addUser.setOnAction(e-> approveUser());
+        removeUser.setOnAction(e-> {
+            try {
+                removeUser();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+    }
+
+    public Boolean rootAccessOnly(UserRecord user) {
+        return (user.getIsRoot() == true || (user.getIsManager() == true && CurrentSession.getInstance().getCurrentUser().getIsRoot() == false));
+    }
+
+    public void changeScenesListener() {
         homeIcon.setOnMouseClicked(e-> {
             try {
                 MainApplication.switchToMainScene();

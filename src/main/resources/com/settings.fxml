@@ -84,7 +84,7 @@
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Region prefHeight="1.0" prefWidth="150.0" HBox.hgrow="ALWAYS" />
-                  <Button fx:id="addUser" mnemonicParsing="false" text="Add User">
+                  <Button fx:id="addUser" mnemonicParsing="false" text="Approve User">
                      <font>
                         <Font size="20.0" />
                      </font>

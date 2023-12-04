@@ -47,7 +47,7 @@ public final class UserManager {
     }
 
     public void addUser(UserRecord newUser) throws SQLException {
-        String query = "insert into users (firstName, lastName, email, passHash, createdOn, lastLogin, isManager, isRoot) values (?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "insert into users (firstName, lastName, email, passwordHash, createdAt, lastLogin, isManager, isRoot) values (?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, newUser.getFirstName());
             preparedStatement.setString(2, newUser.getLastName());
@@ -110,4 +110,13 @@ public final class UserManager {
         }
     }
 
+    public void approveUser(int userId) {
+        String query = "update users set hasApproval = 1 where userId = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, userId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
